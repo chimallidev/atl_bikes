@@ -1,1 +1,75 @@
-<h1>ATL bikes</h1>
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"> {# Codificación #}
+
+    {# Ajusta el ancho de la página al dispositivo y fija el zoom inicial al 100% #}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# Título de la página y meta descripción #}
+    <title>ATL bikes | {{(meta | default({})).get("titulo", "...")}}</title>
+    <meta name="description" content="{{(meta | default({})).get("descripcion", "...")}}">
+
+    {% block url_canonica %}
+    {% endblock %}
+
+    {# Robots #}
+    <meta
+        name="robots"
+        content="index, follow"
+    >
+
+    {# Autor #}
+    <meta
+        name="author"
+        content="Chimallidev"
+    >
+
+    {# Open Graph #}
+    <meta property="og:title" content="{{(og | default({})).get("titulo", "___")}}">
+    <meta property="og:description" content="{{(og | default({})).get("descripcion", "___")}}">
+    <meta property="og:image" content="{{(og | default({})).get("image", "___")}}">
+    <meta property="og:image:width" content="{{(og | default({})).get("width", "___")}}">
+    <meta property="og:image:height" content="{{(og | default({})).get("height", "___")}}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:url" content="{{(og | default({})).get("url", "___")}}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{(og | default({})).get("name", "___")}}">
+    <meta property="og:locale" content="{{(og | default({})).get("locale", "___")}}">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="{{(og | default({})).get("titulo", "___")}}">
+
+    <meta name="twitter:description" content="{{(og | default({})).get("descripcion", "___")}}">
+
+    <meta name="twitter:image" content="{{(og | default({})).get("image", "___")}}">
+    
+    {# favicon #}
+    <link rel="icon" href="{{url_for('static', path='/img/icons/atl_bikes_logo_square_favicon.ico')}}"
+    type="image/x-icon">
+
+    {# Hoja de estilos principal #}
+    <link rel="stylesheet" href="{{url_for('static', path='/css/base_style.css')}}">
+    {# Estilos de componentes más usados #}
+    
+
+    {# Estilos de componentes de cada página #}
+    {% block components_style %}
+    {% endblock %}
+</head>
+<body>
+    {% include 'components/nav_bar.html' %}
+
+    <main class="base__content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'components/footer.html' %}
+
+    {# JS Global #}
+
+    {# JS para cada página #}
+    {% block component_scripts %}
+    {% endblock %}
+</body>

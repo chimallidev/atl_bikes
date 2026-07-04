@@ -1,0 +1,76 @@
+@font-face {
+    font-family: 'Sora';
+    src: url('../fonts/Sora-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../fonts/Sora-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../fonts/Sora-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter_18pt-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter_18pt-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-base: "Inter", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-title: "Sora", 'Segoe UI', Tahoma, sans-serif;
+    --font-universal-weight: 400;
+    --font-universal-size: 16px;
+    --main-color: oklch(0.448474 0.080961 218.7343);
+    --main-color-respaldo: #005f73;
+    --secondary-color: oklch(0.6179 0.1046 199.77);
+    --secondary-color-respaldo: #03989E;
+    --white-color: oklch(1 0 0);
+    --white-color-respaldo: #ffffff;
+    --black-color: oklch(0 0 0);
+    --black-color-respaldo: #000000;
+    --tierra-color: oklch(0.414 0.0676 63.98);
+    --tierra-color-respaldo: #654321;
+    --pino-claro: oklch(0.8639 0.0198 90.56);
+    --pino-claro-respaldo: #D7D2C4;
+    --pino-oscuro: oklch(0.4589 0.0394 135.78);
+    --pino-oscuro-respaldo: #4E5D47;
+}
+
+html {
+    font-family: var(--font-base);
+    font-size: var(--font-universal-size);
+    font-weight: var(--font-universal-weight);
+    background-color: var(--white-color);
+    color: var(--black-color);
+}
+
+.base__content::selection {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+}
