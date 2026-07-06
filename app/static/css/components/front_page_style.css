@@ -1,0 +1,278 @@
+/* ==========================================================
+   FRONT PAGE
+========================================================== */
+
+.front-page{
+
+    position:relative;
+
+    width:100%;
+    height:650px;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:var(--front-page-bg);
+
+}
+
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.front-page__image{
+
+    position:absolute;
+
+    top:0;
+    right:0;
+
+    width:80%;
+    height:100%;
+
+    background-image:var(--front-page-image);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    /*
+        Desvanecimiento sobre la diagonal.
+    */
+
+    -webkit-mask-image:linear-gradient(
+        112deg,
+        transparent 0%,
+        transparent 24%,
+        rgba(0,0,0,.05) 26%,
+        rgba(0,0,0,.15) 28%,
+        rgba(0,0,0,.35) 32%,
+        rgba(0,0,0,.65) 38%,
+        rgba(0,0,0,.90) 48%,
+        black 54%
+    );
+
+    mask-image:linear-gradient(
+        112deg,
+        transparent 0%,
+        transparent 24%,
+        rgba(0,0,0,.05) 26%,
+        rgba(0,0,0,.15) 28%,
+        rgba(0,0,0,.35) 32%,
+        rgba(0,0,0,.65) 38%,
+        rgba(0,0,0,.90) 48%,
+        black 54%
+    );
+
+}
+
+
+/* Oscurecer la fotografía */
+
+.front-page__image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.25);
+
+}
+
+
+/* ==========================================================
+   CONTENT
+========================================================== */
+
+.front-page__content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:min(500px,45%);
+
+    margin-left:4%;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:1.5rem;
+
+}
+
+.front-page__title{
+
+    margin:0;
+
+    color:#fff;
+
+    font-family:var(--font-title);
+
+    font-size:clamp(2.8rem,4vw,4.5rem);
+
+    line-height:1.05;
+
+}
+
+.front-page__subtitle{
+
+    margin:0;
+
+    color:rgba(255,255,255,.95);
+
+    font-family:var(--font-base);
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+}
+
+.front-page__button{
+
+    display:inline-flex;
+
+    justify-content:center;
+    align-items:center;
+
+    width:fit-content;
+
+    padding:16px 34px;
+
+    border:2px solid #fff;
+    border-radius:999px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    font-family:var(--font-base);
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.front-page__button:hover{
+
+    background:#fff;
+
+    color:#222;
+
+}
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width:1024px){
+
+    .front-page{
+
+        height:520px;
+
+    }
+
+    .front-page__image{
+
+        width:85%;
+
+    }
+
+    .front-page__content{
+
+        width:55%;
+        margin-left:6%;
+
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    .front-page{
+
+        min-height:600px;
+        height:auto;
+
+    }
+
+    .front-page__image{
+
+        width:100%;
+
+        /*
+            Sin máscara en móviles.
+        */
+        -webkit-mask-image:none;
+        mask-image:none;
+
+        /*
+            Mostrar más la parte derecha.
+        */
+        background-position:right center;
+
+        /*
+            La imagen ocupa un poco más del ancho
+            para conservar el sujeto principal.
+        */
+        background-size:auto 100%;
+
+        /*
+            Si la imagen es muy panorámica,
+            puedes probar:
+            background-size:130% auto;
+        */
+
+    }
+
+    .front-page__image::after{
+
+        background:rgba(0,0,0,.55);
+
+    }
+
+    .front-page__content{
+
+        width:100%;
+
+        margin:0;
+        padding:2rem;
+
+        align-items:center;
+        text-align:center;
+
+    }
+
+    .front-page__title{
+
+        font-size:clamp(2.2rem,9vw,3.2rem);
+
+    }
+
+    .front-page__subtitle{
+
+        font-size:1rem;
+
+    }
+
+    .front-page__button{
+
+        width:100%;
+        max-width:260px;
+
+    }
+
+}

@@ -1,0 +1,44 @@
+{% macro front_page(data={}) %}
+
+{% set bg_color = data.get("bg_color", "#005f73") %}
+{% set image = data.get("image", "/static/images/default/hero.webp") %}
+{% set title = data.get("title", "ATL bikes") %}
+{% set subtitle = data.get(
+    "subtitle",
+    "Inspirados en la fuerza y la fluidez del agua, ofrecemos bicicletas para cualquier terreno y aventura."
+) %}
+{% set button_text = data.get("button_text", "Conocer más") %}
+{% set button_url = data.get("button_url", "#") %}
+
+<section
+    class="front-page"
+    style="
+        --front-page-bg: {{ bg_color }};
+        --front-page-image: url('{{ image }}');
+    "
+>
+
+    <div class="front-page__image"></div>
+
+    <div class="front-page__content">
+
+        <h1 class="front-page__title">
+            {{ title }}
+        </h1>
+
+        <p class="front-page__subtitle">
+            {{ subtitle }}
+        </p>
+
+        <a
+            href="{{ button_url }}"
+            class="front-page__button"
+        >
+            {{ button_text }}
+        </a>
+
+    </div>
+
+</section>
+
+{% endmacro %}
