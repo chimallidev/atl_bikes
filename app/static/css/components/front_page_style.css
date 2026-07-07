@@ -109,21 +109,21 @@
 
     margin:0;
 
-    color:#fff;
+    color: var(--front-page-title-color);
 
     font-family:var(--font-title);
 
     font-size:clamp(2.8rem,4vw,4.5rem);
 
-    line-height:1.05;
+    line-height:1.15;
 
 }
 
 .front-page__subtitle{
 
-    margin:0;
+    color: var(--front-page-sub-color);
 
-    color:rgba(255,255,255,.95);
+    margin:0;
 
     font-family:var(--font-base);
 

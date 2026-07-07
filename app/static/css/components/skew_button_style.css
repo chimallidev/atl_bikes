@@ -1,0 +1,174 @@
+/* ==========================================================
+   BOTÓN SKEW
+========================================================== */
+
+.btn-skew {
+
+    /*=========================
+      Colores
+    =========================*/
+
+    --btn-text: #2c9caf;
+    --btn-bg: #2c9caf;
+    --btn-hover-text: #ffffff;
+    --btn-outline: #2c9caf;
+    --btn-hover-outline: #70bdca;
+    --btn-shadow: #268391;
+
+    /*=========================
+      Apariencia
+    =========================*/
+
+    --btn-radius: 5px;
+    --btn-padding-y: 1em;
+    --btn-padding-x: 2em;
+    --btn-font-size: 15px;
+    --btn-font-weight: 700;
+    --btn-letter-spacing: 5px;
+    --btn-scale: 1.08;
+    --btn-transition: 1s;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    max-width: 100%;
+
+    flex: 0 0 auto;
+
+    white-space: wrap;
+
+    line-height: 1.5;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        var(--btn-padding-y)
+        var(--btn-padding-x);
+
+    border: none;
+
+    border-radius: var(--btn-radius);
+
+    outline: 2px solid var(--btn-outline);
+
+    background: transparent;
+
+    color: var(--btn-text);
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+
+    font-size: var(--btn-font-size);
+
+    font-weight: var(--btn-font-weight);
+
+    letter-spacing: var(--btn-letter-spacing);
+
+    cursor: pointer;
+
+    user-select: none;
+
+    transition:
+        color var(--btn-transition),
+        transform var(--btn-transition),
+        outline-color var(--btn-transition),
+        box-shadow var(--btn-transition);
+}
+
+
+/*==========================================================
+  Fondo
+==========================================================*/
+
+.btn-skew::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -50px;
+
+    width: 0;
+
+    height: 100%;
+
+    background: var(--btn-bg);
+
+    transform: skewX(45deg);
+
+    transition: width var(--btn-transition);
+
+    z-index: -1;
+
+}
+
+
+/*==========================================================
+  Hover solamente en dispositivos compatibles
+==========================================================*/
+
+@media (hover: hover) and (pointer: fine) {
+
+    .btn-skew:hover {
+
+        color: var(--btn-hover-text);
+
+        transform: scale(var(--btn-scale));
+
+        outline-color: var(--btn-hover-outline);
+
+        box-shadow: 4px 5px 17px -4px var(--btn-shadow);
+
+    }
+
+    .btn-skew:hover::before {
+
+        width: 250%;
+
+    }
+
+}
+
+
+/*==========================================================
+  Active
+==========================================================*/
+
+.btn-skew:active {
+    transition: .2s;
+    transform: scale(.98);
+    color: var(--btn-hover-text);
+
+    transform: scale(var(--btn-scale));
+
+    outline-color: var(--btn-hover-outline);
+
+    box-shadow: 4px 5px 17px -4px var(--btn-shadow);
+
+}
+
+.btn-skew:active::before {
+        transition: .2s;
+        width: 250%;
+
+    }
+
+
+/*==========================================================
+  Focus por teclado
+==========================================================*/
+
+.btn-skew:focus-visible {
+
+    outline: 3px solid var(--btn-hover-outline);
+
+    outline-offset: 4px;
+
+}

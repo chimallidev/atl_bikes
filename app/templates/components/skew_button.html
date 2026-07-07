@@ -1,0 +1,105 @@
+{% macro skew_button(config={}) %}
+
+    {# ==========================================================
+       Texto
+    ========================================================== #}
+
+    {% set text = config.get("text", "Botón") %}
+
+
+    {# ==========================================================
+       Link
+    ========================================================== #}
+
+    {% set link = config.get("link", {}) %}
+
+    {% set href = link.get("href", "#") %}
+    {% set target_blank = link.get("target_blank", false) %}
+    {% set rel_secure = link.get("rel_secure", true) %}
+
+
+    {# ==========================================================
+       Apariencia
+    ========================================================== #}
+
+    {% set appearance = config.get("appearance", {}) %}
+
+    {% set radius = appearance.get("radius", "5px") %}
+    {% set padding_y = appearance.get("padding_y", "1em") %}
+    {% set padding_x = appearance.get("padding_x", "2em") %}
+    {% set font_size = appearance.get("font_size", "15px") %}
+    {% set font_weight = appearance.get("font_weight", "700") %}
+    {% set letter_spacing = appearance.get("letter_spacing", "5px") %}
+    {% set scale = appearance.get("hover_scale", "1.08") %}
+    {% set transition = appearance.get("transition", "1s") %}
+
+
+    {# ==========================================================
+       Colores
+    ========================================================== #}
+
+    {% set colors = config.get("colors", {}) %}
+
+    {% set text_color = colors.get("text", "#2c9caf") %}
+    {% set background = colors.get("background", "#2c9caf") %}
+    {% set hover_text = colors.get("hover_text", "#ffffff") %}
+    {% set outline = colors.get("outline", "#2c9caf") %}
+    {% set hover_outline = colors.get("hover_outline", "#70bdca") %}
+    {% set shadow = colors.get("shadow", "#268391") %}
+
+
+    {# ==========================================================
+       Atributos HTML
+    ========================================================== #}
+
+    {% set attributes = config.get("attributes", {}) %}
+
+    {% set id = attributes.get("id", "") %}
+    {% set class = attributes.get("class", "") %}
+    {% set aria_label = attributes.get("aria_label", text) %}
+
+<a
+
+    href="{{ href }}"
+
+    class="btn-skew {{ class }}"
+
+    {% if id %}
+        id="{{ id }}"
+    {% endif %}
+
+    aria-label="{{ aria_label }}"
+
+    {% if target_blank %}
+        target="_blank"
+    {% endif %}
+
+    {% if target_blank and rel_secure %}
+        rel="noopener noreferrer"
+    {% endif %}
+
+    style="
+        --btn-text: {{ text_color }};
+        --btn-bg: {{ background }};
+        --btn-hover-text: {{ hover_text }};
+        --btn-outline: {{ outline }};
+        --btn-hover-outline: {{ hover_outline }};
+        --btn-shadow: {{ shadow }};
+
+        --btn-radius: {{ radius }};
+        --btn-padding-y: {{ padding_y }};
+        --btn-padding-x: {{ padding_x }};
+        --btn-font-size: {{ font_size }};
+        --btn-font-weight: {{ font_weight }};
+        --btn-letter-spacing: {{ letter_spacing }};
+        --btn-scale: {{ scale }};
+        --btn-transition: {{ transition }};
+    "
+
+>
+
+    {{ text }}
+
+</a>
+
+{% endmacro %}

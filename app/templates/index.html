@@ -5,14 +5,30 @@
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/skew_button_style.css')}}">
 {% endblock %}
 
 {% block content %}
     {{ front_page({
         "bg_color": "var(--main-color)",
-        "title": "ATL bikes",
+        "title": "Muévete con libertad.",
 
-        "image": "/static/img/ciclismo_agua_mexico_ATL.webp"
+        "subtitle": "En ATL bikes creemos que cada trayecto comienza con la bicicleta adecuada.",
+
+        "image": "/static/img/ciclismo_agua_mexico_ATL.webp",
+        "title_color": "var(--white-color)",
+        "subtitle_color": "var(--pino-claro)",
+        "button_content": {
+            "text": "Encontrar mi bicicleta",
+            "colors": {
+                "text": "var(--white-color)",
+                "background": "var(--secondary-color)",
+                "hover_text": "var(--white-color)",
+                "outline": "var(--white-color)",
+                "hover_outline": "var(--pino-oscuro)",
+                "shadow": "var(--pino-oscuro)"
+            }
+        }
 
     }) }}
 {% endblock %}

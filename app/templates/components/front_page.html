@@ -1,5 +1,7 @@
 {% macro front_page(data={}) %}
 
+{% from 'components/skew_button.html' import skew_button %}
+
 {% set bg_color = data.get("bg_color", "#005f73") %}
 {% set image = data.get("image", "/static/images/default/hero.webp") %}
 {% set title = data.get("title", "ATL bikes") %}
@@ -7,8 +9,9 @@
     "subtitle",
     "Inspirados en la fuerza y la fluidez del agua, ofrecemos bicicletas para cualquier terreno y aventura."
 ) %}
-{% set button_text = data.get("button_text", "Conocer más") %}
-{% set button_url = data.get("button_url", "#") %}
+{% set title_color = data.get("title_color", "#ffffff") %}
+{% set subtitle_color = data.get("subtitle_color", "#ffffff") %}
+{% set button_content = data.get("button_content", {} ) %}
 
 <section
     class="front-page"
@@ -22,20 +25,25 @@
 
     <div class="front-page__content">
 
-        <h1 class="front-page__title">
+        <h1 
+        class="front-page__title"
+        style="
+            --front-page-title-color: {{ title_color }};
+        "
+        >
             {{ title }}
         </h1>
 
-        <p class="front-page__subtitle">
+        <p 
+        class="front-page__subtitle"
+        style="
+            --front-page-sub-color: {{ subtitle_color }};
+        "
+        >
             {{ subtitle }}
         </p>
 
-        <a
-            href="{{ button_url }}"
-            class="front-page__button"
-        >
-            {{ button_text }}
-        </a>
+        {{ skew_button( button_content ) }}
 
     </div>
 
