@@ -1,0 +1,177 @@
+{% macro bike_card(data={}) %}
+
+{# ==========================================================
+   LINK
+========================================================== #}
+
+{% set link = data.get("link", {}) %}
+{% set url = link.get("url", "#") %}
+
+{# ==========================================================
+   IMAGE
+========================================================== #}
+
+{% set image = data.get("image", {}) %}
+
+{% set image_src = image.get(
+    "src",
+    "https://placehold.co/600x600?text=ATL+Bikes"
+) %}
+
+{% set image_alt = image.get(
+    "alt",
+    "Bicicleta"
+) %}
+
+{# ==========================================================
+   TEXT
+========================================================== #}
+
+{% set text = data.get("text", {}) %}
+
+{% set brand = text.get(
+    "brand",
+    "Marca"
+) %}
+
+{% set name = text.get(
+    "name",
+    "Nombre de la bicicleta"
+) %}
+
+{# ==========================================================
+   PRICE
+========================================================== #}
+
+{% set price = data.get("price", {}) %}
+
+{% set show_old = price.get(
+    "show_old",
+    false
+) %}
+
+{% set old_price = price.get(
+    "old",
+    "$0"
+) %}
+
+{% set current_price = price.get(
+    "current",
+    "$0"
+) %}
+
+{# ==========================================================
+   BUTTON
+========================================================== #}
+
+{% set button = data.get("button", {}) %}
+
+{% set button_text = button.get(
+    "text",
+    "Añadir al carrito"
+) %}
+
+{# ==========================================================
+   STYLE
+========================================================== #}
+
+{% set style = data.get("style", {}) %}
+
+{% set brand_color = style.get(
+    "brand_color",
+    "#6b6b6b"
+) %}
+
+{% set name_color = style.get(
+    "name_color",
+    "#1f1f1f"
+) %}
+
+{% set old_price_color = style.get(
+    "old_price_color",
+    "#969696"
+) %}
+
+{% set current_price_color = style.get(
+    "current_price_color",
+    "#005f73"
+) %}
+
+{% set shadow_color = style.get(
+    "shadow_color",
+    "rgba(0,0,0,.18)"
+) %}
+
+<a
+    href="{{ url }}"
+    class="bike-card"
+    style="--bike-card-shadow: {{ shadow_color }};">
+
+    <article class="bike-card__container">
+
+        <div class="bike-card__image-container">
+
+            <img
+                class="bike-card__image"
+                src="{{ image_src }}"
+                alt="{{ image_alt }}">
+
+        </div>
+
+        <div class="bike-card__content">
+
+            <p
+                class="bike-card__brand"
+                style="color: {{ brand_color }};">
+
+                {{ brand }}
+
+            </p>
+
+            <h3
+                class="bike-card__name"
+                style="color: {{ name_color }};">
+
+                {{ name }}
+
+            </h3>
+
+            <div class="bike-card__prices">
+
+                {% if show_old %}
+
+                    <span
+                        class="bike-card__old-price"
+                        style="color: {{ old_price_color }};">
+
+                        {{ old_price }}
+
+                    </span>
+
+                {% endif %}
+
+                <span
+                    class="bike-card__current-price"
+                    style="color: {{ current_price_color }};">
+
+                    {{ current_price }}
+
+                </span>
+
+            </div>
+
+            <button
+                type="button"
+                class="bike-card__button">
+
+                {{ button_text }}
+
+            </button>
+
+        </div>
+
+    </article>
+
+</a>
+
+{% endmacro %}

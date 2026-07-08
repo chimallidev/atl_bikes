@@ -1,37 +1,87 @@
 {% extends 'base.html' %}
 
 {% from 'components/front_page.html' import front_page %}
+{% from 'components/bike_card.html' import bike_card %}
 
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/skew_button_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/bike_card_style.css')}}">
 {% endblock %}
 
 {% block content %}
-    {{ front_page({
-        "bg_color": "var(--main-color)",
-        "title": "Muévete con libertad.",
+    <section class="index__portada"></section>
+        {{ front_page({
+            "bg_color": "var(--main-color)",
+            "title": "Muévete con libertad.",
 
-        "subtitle": "En ATL bikes creemos que cada trayecto comienza con la bicicleta adecuada.",
+            "subtitle": "En ATL bikes creemos que cada trayecto comienza con la bicicleta adecuada.",
 
-        "image": "/static/img/ciclismo_agua_mexico_ATL.webp",
-        "title_color": "var(--white-color)",
-        "subtitle_color": "var(--pino-claro)",
-        "button_content": {
-            "text": "Encontrar mi bicicleta",
-            "colors": {
-                "text": "var(--white-color)",
-                "background": "var(--secondary-color)",
-                "hover_text": "var(--white-color)",
-                "outline": "var(--white-color)",
-                "hover_outline": "var(--pino-oscuro)",
-                "shadow": "var(--pino-oscuro)"
+            "image": "/static/img/ciclismo_agua_mexico_ATL.webp",
+            "title_color": "var(--white-color)",
+            "subtitle_color": "var(--pino-claro)",
+            "button_content": {
+                "text": "Encontrar mi bicicleta",
+                "colors": {
+                    "text": "var(--white-color)",
+                    "background": "var(--secondary-color)",
+                    "hover_text": "var(--white-color)",
+                    "outline": "var(--white-color)",
+                    "hover_outline": "var(--pino-oscuro)",
+                    "shadow": "var(--pino-oscuro)"
+                }
             }
-        }
 
-    }) }}
+        }) }}
+    </section>
+    <section class="index__productos-destacados">
+        <h2 class="index__h2">PRODUCTOS <span>DESTACADOS</span></h2>
+
+        <section class="index__cards-productos">
+            {{ bike_card({
+                "link": {
+                "url": "/bicicletas/trek-marlin-8"
+                },
+
+                "image": {
+                    "src": "/static/images/bikes/marlin.webp",
+                    "alt": "Trek Marlin 8"
+                },
+
+                "text": {
+                    "brand": "TREK",
+                    "name": "Marlin 8 Gen 3"
+                },
+
+                "price": {
+                    "show_old": true,
+                    "old": "$34,999",
+                    "current": "$29,999"
+                },
+
+                "button": {
+                    "text": "Añadir al carrito"
+                },
+
+                "style": {
+
+                    "brand_color": "#7b7b7b",
+                    "name_color": "#1f1f1f",
+
+                    "old_price_color": "#8e8e8e",
+                    "current_price_color": "#005f73",
+
+                    "shadow_color": "rgba(0,95,115,.25)"
+                }
+            }) }}
+            {{ bike_card({}) }}
+            {{ bike_card({}) }}
+        </section>
+    </section>
 {% endblock %}
+
+
 
 {% block component_scripts %}
 {% endblock %}

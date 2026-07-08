@@ -1,4 +1,44 @@
-.front_page {
-    background-color: var(--secondary-color);
-    height: 600px;
+.index__h2 {
+    font-size: clamp(2rem,3.5vw,4rem);
+    font-family: var(--font-title);
+    color: var(--black-color);
+    text-align: center;
+    line-height: 1.5;
+}
+
+.index__productos-destacados {
+    padding: 8% 6%;
+}
+
+.index__productos-destacados .index__h2 span {
+    color: var(--main-color);
+}
+
+.index__cards-productos {
+    display:grid;
+
+    grid-template-columns:repeat(3, 1fr);
+
+    gap:2rem;
+}
+
+@media (max-width:900px){
+
+    .index__cards-productos{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media (max-width:600px){
+
+    .index__cards-productos{
+
+        grid-template-columns:1fr;
+
+    }
+
 }

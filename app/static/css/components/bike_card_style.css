@@ -1,0 +1,216 @@
+/* ==========================================================
+   BIKE CARD
+========================================================== */
+
+.bike-card{
+
+    display:block;
+
+    width:100%;
+
+    padding:8px;
+
+    background:transparent;
+
+    text-decoration:none;
+
+}
+
+
+.bike-card__container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:#ffffff;
+
+    overflow:hidden;
+
+    transition:
+        box-shadow .25s ease,
+        transform .25s ease;
+
+}
+
+
+.bike-card__image-container{
+
+    width:100%;
+
+    aspect-ratio:1 / 1;
+
+    overflow:hidden;
+
+}
+
+
+.bike-card__image{
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .35s ease;
+
+}
+
+
+.bike-card__content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.55rem;
+
+    padding:1rem;
+
+}
+
+
+.bike-card__brand{
+
+    margin:0;
+
+    font-size:1rem;
+
+    font-weight:500;
+
+    text-align:left;
+
+}
+
+
+.bike-card__name{
+
+    margin:0;
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    line-height:1.35;
+
+    text-align:left;
+
+}
+
+
+.bike-card__prices{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.75rem;
+
+    flex-wrap:wrap;
+
+}
+
+
+.bike-card__old-price{
+
+    margin:0;
+
+    font-size:1rem;
+
+    text-decoration:line-through;
+
+}
+
+
+.bike-card__current-price{
+
+    margin:0;
+
+    font-size:1.25rem;
+
+    font-weight:700;
+
+}
+
+
+.bike-card__button{
+
+    width:100%;
+
+    margin-top:.5rem;
+
+    padding:.9rem;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================================
+   DISPOSITIVOS CON HOVER
+========================================================== */
+
+@media (hover: hover) and (pointer: fine){
+
+    .bike-card:hover .bike-card__container{
+
+        box-shadow:
+            0 0 14px -1px var(--bike-card-shadow),
+            12px 12px 28px -4px var(--bike-card-shadow);
+
+    }
+
+    .bike-card:hover .bike-card__image{
+
+        transform:scale(1.04);
+
+    }
+
+}
+
+
+/* ==========================================================
+   DISPOSITIVOS SIN HOVER
+========================================================== */
+
+@media (hover: none){
+
+    .bike-card__container{
+
+        transition:
+            box-shadow .2s ease,
+            transform .2s ease;
+
+    }
+
+    .bike-card__image{
+
+        transition:
+            transform .2s ease;
+
+    }
+
+    .bike-card:active .bike-card__container{
+
+        box-shadow:
+            0 0 14px -1px var(--bike-card-shadow),
+            12px 12px 28px -4px var(--bike-card-shadow);
+
+    }
+
+    .bike-card:active .bike-card__image{
+
+        transform:scale(1.04);
+
+    }
+
+}
