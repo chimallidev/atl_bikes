@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/skew_button_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/bike_card_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_style.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -41,7 +42,7 @@
         <section class="index__cards-productos">
             {{ bike_card({
                 "link": {
-                "url": "/bicicletas/trek-marlin-8"
+                "url": "#"
                 },
 
                 "image": {
@@ -60,8 +61,17 @@
                     "current": "$29,999"
                 },
 
-                "button": {
-                    "text": "Añadir al carrito"
+                "button_content": {
+
+                    "content": {
+                        "text": "Añadir al carrito"
+                    },
+                    "colors": {
+                        "text_color": "var(--secondary-color)",
+                        "text_hover": "var(--white-color)",
+                        "border": "var(--secondary-color)",
+                        "blob": "var(--secondary-color)"
+                    }
                 },
 
                 "style": {

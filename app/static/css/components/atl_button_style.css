@@ -1,0 +1,243 @@
+/* ==========================================================================
+   ATL Button
+   Gooey Button Component
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Button
+   ========================================================================== */
+
+.atl-button {
+
+    --btn-text: #06c8d9;
+    --btn-text-hover: #ffffff;
+    --btn-border: #06c8d9;
+    --btn-blob: #06c8d9;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .65rem;
+
+    position: relative;
+    z-index: 1;
+
+    padding: .9em 1.6em;
+
+    cursor: pointer;
+
+    user-select: none;
+
+    text-decoration: none;
+
+    background: transparent;
+
+    border: 4px solid var(--btn-border);
+
+    color: var(--btn-text);
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    transition: all 700ms ease;
+
+}
+
+
+/* ==========================================================================
+   Icon
+   ========================================================================== */
+
+.atl-button__icon {
+
+    width: 1.15em;
+    height: 1.15em;
+
+    flex-shrink: 0;
+
+    fill: currentColor;
+
+    position: relative;
+    z-index: 2;
+
+}
+
+
+/* ==========================================================================
+   Text
+   ========================================================================== */
+
+.atl-button__text {
+
+    position: relative;
+    z-index: 2;
+
+    line-height: 1;
+
+}
+
+
+/* ==========================================================================
+   Goo Layer
+   ========================================================================== */
+
+.atl-button__blobs {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+    filter: url(#goo);
+
+}
+
+
+/* ==========================================================================
+   Goo Bubbles
+   ========================================================================== */
+
+.atl-button__blobs div {
+
+    position: absolute;
+
+    width: 40%;
+    height: 180%;
+
+    top: -40%;
+
+    border-radius: 50%;
+
+    background: var(--btn-blob);
+
+    transform: scale(1.4) translateY(125%) translateZ(0);
+
+    transition: all 700ms ease;
+
+}
+
+
+/* ==========================================================================
+   Bubble Positions
+   ========================================================================== */
+
+.atl-button__blobs div:nth-child(1) {
+
+    left: -12%;
+
+}
+
+.atl-button__blobs div:nth-child(2) {
+
+    left: 28%;
+
+    transition-delay: 60ms;
+
+}
+
+.atl-button__blobs div:nth-child(3) {
+
+    left: 68%;
+
+    transition-delay: 25ms;
+
+}
+
+
+/* ==========================================================================
+   Hover Devices
+   ========================================================================== */
+
+@media (hover: hover) {
+
+    .atl-button:hover {
+
+        color: var(--btn-text-hover);
+
+    }
+
+    .atl-button:hover .atl-button__blobs div {
+
+        transform: scale(1.4) translateY(0) translateZ(0);
+
+    }
+
+}
+
+
+/* ==========================================================================
+   Touch Devices
+   ========================================================================== */
+
+@media (hover: none) {
+
+    .atl-button {
+
+        transition: all .2s ease;
+
+    }
+
+    .atl-button__blobs div {
+
+        transition: all .2s ease;
+
+    }
+
+    .atl-button:active {
+
+        color: var(--btn-text-hover);
+
+    }
+
+    .atl-button:active .atl-button__blobs div {
+
+        transform: scale(1.4) translateY(0) translateZ(0);
+
+    }
+
+}
+
+
+/* ==========================================================================
+   Focus
+   ========================================================================== */
+
+.atl-button:focus {
+
+    outline: none;
+
+}
+
+.atl-button:focus-visible {
+
+    outline: 3px solid var(--btn-border);
+    outline-offset: 4px;
+
+}
+
+
+/* ==========================================================================
+   Disabled
+   ========================================================================== */
+
+.atl-button:disabled,
+.atl-button[aria-disabled="true"] {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+    pointer-events: none;
+
+}

@@ -1,0 +1,119 @@
+{# ==========================================================================
+   ATL Button
+   Gooey Button Macro
+   ========================================================================== #}
+
+{% macro atl_button(data={}) %}
+
+{# ==========================================================================
+   Configuración
+   ========================================================================== #}
+
+{% set content = data.get("content", {}) %}
+{% set colors = data.get("colors", {}) %}
+{% set attributes = data.get("attributes", {}) %}
+
+{# ==========================================================================
+   Contenido
+   ========================================================================== #}
+
+{% set icon = content.get("icon", "") %}
+{% set text = content.get("text", "Button") %}
+
+{# ==========================================================================
+   Colores
+   ========================================================================== #}
+
+{% set text_color = colors.get("text_color", "#06c8d9") %}
+{% set text_hover = colors.get("text_hover", "#ffffff") %}
+{% set border = colors.get("border", "#06c8d9") %}
+{% set blob = colors.get("blob", "#06c8d9") %}
+
+{# ==========================================================================
+   Atributos
+   ========================================================================== #}
+
+{% set type = attributes.get("type", "button") %}
+{% set href = attributes.get("href", "#") %}
+{% set id = attributes.get("id", "") %}
+{% set class_name = attributes.get("class", "") %}
+{% set aria_label = attributes.get("aria_label", text) %}
+
+{# ==========================================================================
+   Variables CSS
+   ========================================================================== #}
+
+{% set css_vars %}
+--btn-text: {{ text_color }};
+--btn-text-hover: {{ text_hover }};
+--btn-border: {{ border }};
+--btn-blob: {{ blob }};
+{% endset %}
+
+{# ==========================================================================
+   Apertura
+   ========================================================================== #}
+
+{% if type == "link" %}
+
+<a
+    href="{{ href }}"
+    id="{{ id }}"
+    class="atl-button {{ class_name }}"
+    aria-label="{{ aria_label }}"
+    draggable="false"
+    style="{{ css_vars | trim }}"
+>
+
+{% else %}
+
+<button
+    type="{{ type }}"
+    id="{{ id }}"
+    class="atl-button {{ class_name }}"
+    aria-label="{{ aria_label }}"
+    style="{{ css_vars | trim }}"
+>
+
+{% endif %}
+
+    {% if icon %}
+
+    <svg
+        class="atl-button__icon"
+        aria-hidden="true"
+        focusable="false">
+
+        <use href="#{{ icon }}"></use>
+
+    </svg>
+
+    {% endif %}
+
+    <span class="atl-button__text">
+
+        {{ text }}
+
+    </span>
+
+    <div class="atl-button__blobs">
+
+        <div></div>
+
+        <div></div>
+
+        <div></div>
+
+    </div>
+
+{% if type == "link" %}
+
+</a>
+
+{% else %}
+
+</button>
+
+{% endif %}
+
+{% endmacro %}

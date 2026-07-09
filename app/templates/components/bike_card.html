@@ -1,5 +1,7 @@
 {% macro bike_card(data={}) %}
 
+{% from 'components/atl_button.html' import atl_button %}
+
 {# ==========================================================
    LINK
 ========================================================== #}
@@ -64,12 +66,7 @@
    BUTTON
 ========================================================== #}
 
-{% set button = data.get("button", {}) %}
-
-{% set button_text = button.get(
-    "text",
-    "Añadir al carrito"
-) %}
+{% set button_content = data.get("button_content", {}) %}
 
 {# ==========================================================
    STYLE
@@ -102,23 +99,27 @@
     "rgba(0,0,0,.18)"
 ) %}
 
-<a
-    href="{{ url }}"
+<article
     class="bike-card"
     style="--bike-card-shadow: {{ shadow_color }};">
 
     <article class="bike-card__container">
 
-        <div class="bike-card__image-container">
+        <a 
+        class="bike-card__image-container"
+        href="{{ url }}">
 
             <img
                 class="bike-card__image"
                 src="{{ image_src }}"
                 alt="{{ image_alt }}">
 
-        </div>
+        </a>
 
-        <div class="bike-card__content">
+        <a 
+        class="bike-card__content"
+        href="{{ url }}"
+        >
 
             <p
                 class="bike-card__brand"
@@ -160,18 +161,15 @@
 
             </div>
 
-            <button
-                type="button"
-                class="bike-card__button">
+            
 
-                {{ button_text }}
-
-            </button>
-
+        </a>
+        <div class="bike-card__button-container">
+            {{ atl_button( button_content ) }}
         </div>
 
     </article>
 
-</a>
+</article>
 
 {% endmacro %}
