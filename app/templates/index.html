@@ -37,7 +37,7 @@
         }) }}
     </section>
     <section class="index__productos-destacados">
-        <h2 class="index__h2">PRODUCTOS <span>DESTACADOS</span></h2>
+        <h2 class="index__h2">BICICLETAS <span>DESTACADAS</span></h2>
 
         <section class="index__cards-productos">
             {{ bike_card({
@@ -46,19 +46,18 @@
                 },
 
                 "image": {
-                    "src": "/static/images/bikes/marlin.webp",
-                    "alt": "Trek Marlin 8"
+                    "src": "/static/img/bicicleta-alubike-revel-silver-sora.webp",
+                    "alt": "Bicicleta Alubike Revel Silver Sora"
                 },
 
                 "text": {
-                    "brand": "TREK",
-                    "name": "Marlin 8 Gen 3"
+                    "brand": "Alubike",
+                    "name": "Bicicleta Alubike Revel Silver Sora"
                 },
 
                 "price": {
-                    "show_old": true,
-                    "old": "$34,999",
-                    "current": "$29,999"
+                    "show_old": false,
+                    "current": "$19,499.00"
                 },
 
                 "button_content": {
@@ -76,17 +75,105 @@
 
                 "style": {
 
-                    "brand_color": "#7b7b7b",
-                    "name_color": "#1f1f1f",
+                    "brand_color": "var(--pino-oscuro)",
+                    "name_color": "var(--black-color)",
 
-                    "old_price_color": "#8e8e8e",
-                    "current_price_color": "#005f73",
+                    "old_price_color": "var(--tierra-claro-color)",
+                    "current_price_color": "var(--main-color)",
 
-                    "shadow_color": "rgba(0,95,115,.25)"
+                    "shadow_color": "var(--main-color)"
                 }
             }) }}
-            {{ bike_card({}) }}
-            {{ bike_card({}) }}
+            {{ bike_card({
+                "link": {
+                "url": "#"
+                },
+
+                "image": {
+                    "src": "/static/img/2026_FULL_grail_cf-sl-8-1by.webp",
+                    "alt": "Grail CF 8 1by"
+                },
+
+                "text": {
+                    "brand": "Canyon",
+                    "name": "Grail CF 8 1by"
+                },
+
+                "price": {
+                    "show_old": true,
+                    "old": "$51,749",
+                    "current": "$39,464"
+                },
+
+                "button_content": {
+
+                    "content": {
+                        "text": "Añadir al carrito"
+                    },
+                    "colors": {
+                        "text_color": "var(--secondary-color)",
+                        "text_hover": "var(--white-color)",
+                        "border": "var(--secondary-color)",
+                        "blob": "var(--secondary-color)"
+                    }
+                },
+
+                "style": {
+
+                    "brand_color": "var(--pino-oscuro)",
+                    "name_color": "var(--black-color)",
+
+                    "old_price_color": "var(--tierra-claro-color)",
+                    "current_price_color": "var(--main-color)",
+
+                    "shadow_color": "var(--main-color)"
+                }
+            }) }}
+            {{ bike_card({
+                "link": {
+                "url": "#"
+                },
+
+                "image": {
+                    "src": "/static/img/bicicleta-cannondale-topstone-carbon-1-rle.webp",
+                    "alt": "Bicicleta Cannondale Topstone Carbon 1 RLE"
+                },
+
+                "text": {
+                    "brand": "Cannondale",
+                    "name": "Bicicleta Cannondale Topstone Carbon 1 RLE"
+                },
+
+                "price": {
+                    "show_old": true,
+                    "old": "$159,990",
+                    "current": "$127,992"
+                },
+
+                "button_content": {
+
+                    "content": {
+                        "text": "Añadir al carrito"
+                    },
+                    "colors": {
+                        "text_color": "var(--secondary-color)",
+                        "text_hover": "var(--white-color)",
+                        "border": "var(--secondary-color)",
+                        "blob": "var(--secondary-color)"
+                    }
+                },
+
+                "style": {
+
+                    "brand_color": "var(--pino-oscuro)",
+                    "name_color": "var(--black-color)",
+
+                    "old_price_color": "var(--tierra-claro-color)",
+                    "current_price_color": "var(--main-color)",
+
+                    "shadow_color": "var(--main-color)"
+                }
+            }) }}
         </section>
     </section>
 {% endblock %}

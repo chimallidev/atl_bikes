@@ -56,6 +56,8 @@
     --black-color-respaldo: #000000;
     --tierra-color: oklch(0.414 0.0676 63.98);
     --tierra-color-respaldo: #654321;
+    --tierra-claro-color: oklch(0.6677 0.0676 63.98);
+    --tierra-color-claro-respaldo: oklch(0.6677 0.0676 63.98);
     --pino-claro: oklch(0.8639 0.0198 90.56);
     --pino-claro-respaldo: #D7D2C4;
     --pino-oscuro: oklch(0.4589 0.0394 135.78);
