@@ -2,3 +2,7 @@
 atl_bikes_workspace.code-workspace
 __pycache__/
 *.pyc
+.env
+test_config.py
+test_database.py
+test_base.py
