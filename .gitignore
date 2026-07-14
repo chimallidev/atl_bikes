@@ -6,3 +6,4 @@ __pycache__/
 test_config.py
 test_database.py
 test_base.py
+test_mixins.py
