@@ -7,3 +7,10 @@ test_config.py
 test_database.py
 test_base.py
 test_mixins.py
+test_brand_model.py
+test_category_model.py
+test_bike_type_model.py
+test_database_data.py
+test_database_data_brand.py
+test_database_data_category.py
+test_product_repository.py
