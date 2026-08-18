@@ -2,11 +2,12 @@ from sqlalchemy import CheckConstraint
 from sqlalchemy import ForeignKey
 from sqlalchemy import Index
 from sqlalchemy import String
+from sqlalchemy import Boolean
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 from sqlalchemy.orm import relationship
 
-from ....database.base import Base
+from ...database.base import Base
 from ....infrastructure.mixins import (
     IdMixin,
     PriceMixin,
@@ -59,6 +60,13 @@ class ProductModel(
         ForeignKey("categories.id"),
         nullable=False,
         comment="Categoría del producto.",
+    )
+
+    is_featured: Mapped[bool] = mapped_column(
+        Boolean,
+        nullable=False,
+        default=False,
+        comment="Indica si el producto aparece como destacado.",
     )
 
     brand = relationship(

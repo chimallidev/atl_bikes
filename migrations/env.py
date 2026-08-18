@@ -6,7 +6,7 @@ from sqlalchemy import pool
 from alembic import context
 
 from app.core.config import settings
-from app.database.base import Base
+from app.infrastructure.database.base import Base
 
 from app.infrastructure.models.catalog import (
     BrandModel,

@@ -40,6 +40,12 @@
         <h2 class="index__h2">BICICLETAS <span>DESTACADAS</span></h2>
 
         <section class="index__cards-productos">
+
+            {% if featured_products %}
+                {% for prod in featured_products %}
+                    <p>{{prod}}</p>
+                {% endfor %}
+            {% endif %}
             {{ bike_card({
                 "link": {
                 "url": "#"
