@@ -78,3 +78,9 @@ class ProductModel(
         "CategoryModel",
         back_populates="products",
     )
+
+    images: Mapped[list["ProductImageModel"]] = relationship(
+        "ProductImageModel",
+        back_populates="product",
+        cascade="all, delete-orphan",
+    )

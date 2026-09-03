@@ -7,14 +7,14 @@ class ProductRepository(ABC):
 
     @abstractmethod
     def count_featured(self) -> int:
-        raise NotImplementedError
+        ...
 
     @abstractmethod
     def get_featured(
         self,
         limit: int,
     ) -> list[Product]:
-        raise NotImplementedError
+        ...
 
     @abstractmethod
     def set_featured(
@@ -22,4 +22,18 @@ class ProductRepository(ABC):
         product_id: int,
         is_featured: bool,
     ) -> None:
-        raise NotImplementedError
+        ...
+
+    @abstractmethod
+    def update(
+        self,
+        product: Product,
+    ) -> None:
+        ...
+
+    @abstractmethod
+    def get_by_id(
+        self,
+        product_id: int,
+    ) -> Product | None:
+        ...

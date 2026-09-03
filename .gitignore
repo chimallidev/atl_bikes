@@ -3,4 +3,3 @@ atl_bikes_workspace.code-workspace
 __pycache__/
 *.pyc
 .env
-tests/

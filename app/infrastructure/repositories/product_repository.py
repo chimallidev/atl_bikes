@@ -1,5 +1,5 @@
 from sqlalchemy import func, select
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, selectinload
 
 from ...domain.entities.product import Product
 from ...domain.repositories.product_repository import (
@@ -18,6 +18,7 @@ class SQLAlchemyProductRepository(ProductRepository):
         session: Session,
     ) -> None:
         self._session = session
+        self._loaded_models: dict[int, ProductModel] = {}
 
     def count_featured(self) -> int:
 
@@ -43,6 +44,10 @@ class SQLAlchemyProductRepository(ProductRepository):
             select(ProductModel)
             .where(
                 ProductModel.is_featured.is_(True)
+            )
+            .options(
+                selectinload(ProductModel.brand),
+                selectinload(ProductModel.images)
             )
             .order_by(ProductModel.id)
             .limit(limit)
@@ -74,3 +79,48 @@ class SQLAlchemyProductRepository(ProductRepository):
             )
 
         product.is_featured = is_featured
+
+    def get_by_id(
+        self,
+        product_id: int,
+    ) -> Product | None:
+
+        statement = (
+            select(ProductModel)
+            .where(
+                ProductModel.id == product_id
+            )
+            .options(
+                selectinload(ProductModel.brand),
+                selectinload(ProductModel.images),
+            )
+        )
+
+        result = self._session.execute(statement)
+
+        model = result.scalar_one_or_none()
+
+        if model is None:
+            return None
+
+        self._loaded_models[product_id] = model
+
+        return ProductMapper.to_domain(model)
+
+    def update(
+        self,
+        product: Product,
+    ) -> None:
+
+        model = self._loaded_models.get(product.id)
+
+        if model is None:
+            raise ValueError(
+                f"Producto con id {product.id} "
+                f"no fue cargado por el repositorio."
+            )
+
+        ProductMapper.to_model(
+            product,
+            model,
+        )

@@ -1,3 +1,5 @@
+import os
+
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -18,9 +20,15 @@ from app.infrastructure.models.catalog import (
 # access to the values within the .ini file in use.
 config = context.config
 
+database_url = (
+    settings.database_url_test
+    if os.getenv("TESTING") == "1"
+    else settings.database_url
+)
+
 config.set_main_option(
     "sqlalchemy.url",
-    settings.database_url,
+    database_url,
 )
 
 # Interpret the config file for Python logging.

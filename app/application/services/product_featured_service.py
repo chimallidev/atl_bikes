@@ -3,6 +3,9 @@ from ...domain.entities.product import Product
 from ...domain.exceptions.product_exceptions import (
     FeaturedProductsLimitExceededError,
 )
+from ...application.schemas.product_schema import (
+    FeaturedProductResponse,
+)
 
 
 class ProductFeaturedService:
@@ -13,13 +16,29 @@ class ProductFeaturedService:
     ) -> None:
         self._unit_of_work = unit_of_work
 
-    def get_featured_products(self) -> list[Product]:
+    def get_featured(
+        self,
+    ) -> list[FeaturedProductResponse]:
 
-        with self._unit_of_work as unit_of_work:
+        with self._unit_of_work as uow:
 
-            return unit_of_work.products.get_featured(
+            products = uow.products.get_featured(
                 limit=Product.MAX_FEATURED_PRODUCTS,
             )
+
+        return [
+            FeaturedProductResponse(
+                id=product.id,
+                name=product.name,
+                slug=product.slug,
+                brand=product.brand.name,
+                current_price=product.current_price,
+                compare_at_price=product.compare_at_price,
+                is_featured=product.is_featured,
+                cover_image_url=product.cover_image.image_url,
+            )
+            for product in products
+        ]
 
     def feature_product(
         self,

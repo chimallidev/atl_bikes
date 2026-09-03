@@ -8,6 +8,8 @@ class Settings(BaseSettings):
 
     database_url: str
 
+    database_url_test: str
+
     supabase_url: str
 
     supabase_publishable_key: str
