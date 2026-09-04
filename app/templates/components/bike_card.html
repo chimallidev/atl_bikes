@@ -54,12 +54,12 @@
 
 {% set old_price = price.get(
     "old",
-    "$0"
+    0
 ) %}
 
 {% set current_price = price.get(
     "current",
-    "$0"
+    0
 ) %}
 
 {# ==========================================================
@@ -145,7 +145,7 @@
                         class="bike-card__old-price"
                         style="color: {{ old_price_color }};">
 
-                        {{ old_price }}
+                        {{ old_price | currency }}
 
                     </span>
 
@@ -155,7 +155,7 @@
                     class="bike-card__current-price"
                     style="color: {{ current_price_color }};">
 
-                    {{ current_price }}
+                    {{ current_price | currency }}
 
                 </span>
 

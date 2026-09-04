@@ -42,144 +42,54 @@
         <section class="index__cards-productos">
 
             {% if featured_products %}
-                {% for prod in featured_products %}
-                    <p>{{prod}}</p>
+                {% for f_product in featured_products %}
+                    {{ bike_card({
+                        "link": {
+                        "url": "#"
+                        },
+
+                        "image": {
+                            "src": f_product.cover_image_url,
+                            "alt": "Bicicleta " + f_product.name
+                        },
+
+                        "text": {
+                            "brand": f_product.brand,
+                            "name": f_product.name
+                        },
+
+                        "price": {
+                            "show_old": f_product.compare_at_price is not none,
+                            "old": f_product.compare_at_price,
+                            "current": f_product.current_price
+                        },
+
+                        "button_content": {
+
+                            "content": {
+                                "text": "Añadir al carrito"
+                            },
+                            "colors": {
+                                "text_color": "var(--secondary-color)",
+                                "text_hover": "var(--white-color)",
+                                "border": "var(--secondary-color)",
+                                "blob": "var(--secondary-color)"
+                            }
+                        },
+
+                        "style": {
+
+                            "brand_color": "var(--pino-oscuro)",
+                            "name_color": "var(--black-color)",
+
+                            "old_price_color": "var(--tierra-claro-color)",
+                            "current_price_color": "var(--main-color)",
+
+                            "shadow_color": "var(--main-color)"
+                        }
+                    }) }}
                 {% endfor %}
             {% endif %}
-            {{ bike_card({
-                "link": {
-                "url": "#"
-                },
-
-                "image": {
-                    "src": "/static/img/bicicleta-alubike-revel-silver-sora.webp",
-                    "alt": "Bicicleta Alubike Revel Silver Sora"
-                },
-
-                "text": {
-                    "brand": "Alubike",
-                    "name": "Bicicleta Alubike Revel Silver Sora"
-                },
-
-                "price": {
-                    "show_old": false,
-                    "current": "$19,499.00"
-                },
-
-                "button_content": {
-
-                    "content": {
-                        "text": "Añadir al carrito"
-                    },
-                    "colors": {
-                        "text_color": "var(--secondary-color)",
-                        "text_hover": "var(--white-color)",
-                        "border": "var(--secondary-color)",
-                        "blob": "var(--secondary-color)"
-                    }
-                },
-
-                "style": {
-
-                    "brand_color": "var(--pino-oscuro)",
-                    "name_color": "var(--black-color)",
-
-                    "old_price_color": "var(--tierra-claro-color)",
-                    "current_price_color": "var(--main-color)",
-
-                    "shadow_color": "var(--main-color)"
-                }
-            }) }}
-            {{ bike_card({
-                "link": {
-                "url": "#"
-                },
-
-                "image": {
-                    "src": "/static/img/2026_FULL_grail_cf-sl-8-1by.webp",
-                    "alt": "Grail CF 8 1by"
-                },
-
-                "text": {
-                    "brand": "Canyon",
-                    "name": "Grail CF 8 1by"
-                },
-
-                "price": {
-                    "show_old": true,
-                    "old": "$51,749",
-                    "current": "$39,464"
-                },
-
-                "button_content": {
-
-                    "content": {
-                        "text": "Añadir al carrito"
-                    },
-                    "colors": {
-                        "text_color": "var(--secondary-color)",
-                        "text_hover": "var(--white-color)",
-                        "border": "var(--secondary-color)",
-                        "blob": "var(--secondary-color)"
-                    }
-                },
-
-                "style": {
-
-                    "brand_color": "var(--pino-oscuro)",
-                    "name_color": "var(--black-color)",
-
-                    "old_price_color": "var(--tierra-claro-color)",
-                    "current_price_color": "var(--main-color)",
-
-                    "shadow_color": "var(--main-color)"
-                }
-            }) }}
-            {{ bike_card({
-                "link": {
-                "url": "#"
-                },
-
-                "image": {
-                    "src": "/static/img/bicicleta-cannondale-topstone-carbon-1-rle.webp",
-                    "alt": "Bicicleta Cannondale Topstone Carbon 1 RLE"
-                },
-
-                "text": {
-                    "brand": "Cannondale",
-                    "name": "Bicicleta Cannondale Topstone Carbon 1 RLE"
-                },
-
-                "price": {
-                    "show_old": true,
-                    "old": "$159,990",
-                    "current": "$127,992"
-                },
-
-                "button_content": {
-
-                    "content": {
-                        "text": "Añadir al carrito"
-                    },
-                    "colors": {
-                        "text_color": "var(--secondary-color)",
-                        "text_hover": "var(--white-color)",
-                        "border": "var(--secondary-color)",
-                        "blob": "var(--secondary-color)"
-                    }
-                },
-
-                "style": {
-
-                    "brand_color": "var(--pino-oscuro)",
-                    "name_color": "var(--black-color)",
-
-                    "old_price_color": "var(--tierra-claro-color)",
-                    "current_price_color": "var(--main-color)",
-
-                    "shadow_color": "var(--main-color)"
-                }
-            }) }}
         </section>
     </section>
 {% endblock %}
