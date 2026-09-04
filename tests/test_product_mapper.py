@@ -1,75 +1,64 @@
 from decimal import Decimal
 
 from app.domain.entities.product import Product
-from app.domain.entities.product_image import ProductImage
 from app.infrastructure.mappers.product_mapper import ProductMapper
 from app.infrastructure.models.catalog import (
+    BrandModel,
     ProductImageModel,
     ProductModel,
 )
 
 
-def test_to_model_updates_product_image_models():
+def test_product_mapper_to_domain():
+
+    brand_model = BrandModel(
+        id=1,
+        name="Specialized",
+        slug="specialized",
+    )
 
     product_model = ProductModel(
         id=1,
-        name="Domane AL 5 Gen 4",
-        slug="domane-al-5-gen-4",
+        name="Rockhopper",
+        slug="rockhopper",
         brand_id=1,
         category_id=1,
-        current_price=Decimal("42999.00"),
-        compare_at_price=None,
+        current_price=Decimal("15000.00"),
+        compare_at_price=Decimal("17000.00"),
         is_featured=True,
     )
 
-    image_model_1 = ProductImageModel(
+    product_model.brand = brand_model
+
+    image_model = ProductImageModel(
         id=1,
         product_id=1,
-        image_url="side.jpg",
+        image_url="rockhopper.jpg",
         is_cover=True,
     )
 
-    image_model_2 = ProductImageModel(
-        id=2,
-        product_id=1,
-        image_url="front.jpg",
-        is_cover=False,
-    )
+    product_model.images = [image_model]
 
-    product_model.images = [
-        image_model_1,
-        image_model_2,
-    ]
+    product = ProductMapper.to_domain(product_model)
 
-    product = Product(
-        id=1,
-        name="Domane AL 5 Gen 4",
-        slug="domane-al-5-gen-4",
-        brand_id=1,
-        category_id=1,
-        current_price=Decimal("42999.00"),
-        compare_at_price=None,
-        is_featured=True,
-        images=[
-            ProductImage(
-                id=1,
-                product_id=1,
-                image_url="side.jpg",
-                is_cover=False,
-            ),
-            ProductImage(
-                id=2,
-                product_id=1,
-                image_url="front.jpg",
-                is_cover=True,
-            ),
-        ],
-    )
+    assert isinstance(product, Product)
 
-    ProductMapper.to_model(
-        product,
-        product_model,
-    )
+    assert product.id == 1
+    assert product.name == "Rockhopper"
+    assert product.slug == "rockhopper"
 
-    assert product_model.images[0].is_cover is False
-    assert product_model.images[1].is_cover is True
+    assert product.brand is not None
+    assert product.brand.name == "Specialized"
+
+    assert product.current_price == Decimal("15000.00")
+    assert product.compare_at_price == Decimal("17000.00")
+    assert product.is_featured is True
+
+    assert product.images is not None
+    assert len(product.images) == 1
+
+    assert product.images[0].image_url == "rockhopper.jpg"
+    assert product.images[0].is_cover is True
+
+    assert product.cover_image is not None
+    assert product.cover_image.image_url == "rockhopper.jpg"

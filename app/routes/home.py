@@ -3,9 +3,6 @@ from pathlib import Path
 from fastapi import APIRouter, Request, HTTPException, status
 from fastapi.responses import HTMLResponse
 
-from ..application.schemas.product_schema import (
-    FeaturedProductResponse,
-)
 from ..application.services.product_featured_service import (
     ProductFeaturedService,
 )
@@ -26,7 +23,9 @@ router = APIRouter()
 )
 async def home(request: Request):
 
-    template_path = Path(templates.env.loader.searchpath[0]) / "index.html"
+    template_path = Path(
+        templates.env.loader.searchpath[0]
+    ) / "index.html"
 
     if not template_path.is_file():
         raise HTTPException(
@@ -41,18 +40,18 @@ async def home(request: Request):
             unit_of_work=unit_of_work,
         )
 
-        products = service.get_featured_products()
+        featured_products = service.get_featured()
 
     except Exception as error:
+
+        print(
+        f"ERROR EN HOME: {type(error).__name__}: {error}"
+        )
+        
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="No fue posible obtener los productos destacados.",
         ) from error
-
-    featured_products = [
-        FeaturedProductResponse.model_validate(product)
-        for product in products
-    ]
 
     return templates.TemplateResponse(
         request=request,
