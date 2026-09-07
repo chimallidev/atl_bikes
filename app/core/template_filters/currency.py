@@ -1,2 +1,2 @@
 def currency(value):
-    return f"${value:,.0f}"
+    return f"${value:,.2f}"
