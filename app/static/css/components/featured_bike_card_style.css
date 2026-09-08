@@ -551,15 +551,6 @@
 
 @media (hover: none) {
 
-    .featured-bike-card__box::before,
-    .featured-bike-card__box::after {
-        transition:
-            transform 0.2s ease,
-            left 0.2s ease,
-            width 0.2s ease;
-    }
-
-
     .featured-bike-card__box:active::before,
     .featured-bike-card__box:active::after {
         transform: skewX(0deg);
@@ -567,23 +558,6 @@
         left: 10px;
 
         width: 85%;
-    }
-
-
-    .featured-bike-card__span--one::before,
-    .featured-bike-card__span--one::after,
-    .featured-bike-card__span--two::before,
-    .featured-bike-card__span--two::after {
-        transition:
-            top 0.2s ease,
-            left 0.2s ease,
-            right 0.2s ease,
-            bottom 0.2s ease,
-            width 0.2s ease,
-            height 0.2s ease,
-            opacity 0.2s ease;
-
-        animation-duration: 0.5s;
     }
 
 
@@ -640,19 +614,12 @@
         left: -25px;
 
         padding: 60px 40px;
-
-        transition:
-            left 0.2s ease,
-            padding 0.2s ease;
     }
 
 
     .featured-bike-card__box:active
     .featured-bike-card__image {
         transform: scale(1.1);
-
-        transition:
-            transform 0.2s ease;
     }
 
 
