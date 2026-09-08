@@ -1,0 +1,255 @@
+```jinja2
+{% macro featured_bike_card(data={}) %}
+
+    {# ========================================
+       DATA
+       ======================================== #}
+
+    {% set content = data.get("content", {}) %}
+    {% set card_colors = data.get("colors", {}) %}
+
+
+    {# ========================================
+       CONTENT DATA
+       ======================================== #}
+
+    {% set image = content.get(
+        "image",
+        "/static/images/placeholder-bike.jpg"
+    ) %}
+
+    {% set brand = content.get(
+        "brand",
+        "Marca"
+    ) %}
+
+    {% set name = content.get(
+        "name",
+        "Bicicleta"
+    ) %}
+
+    {% set url = content.get(
+        "url",
+        "#"
+    ) %}
+
+    {% set old_price = content.get(
+        "old_price"
+    ) %}
+
+    {% set current_price = content.get(
+        "current_price",
+        0
+    ) %}
+
+
+    {# ========================================
+       CONTENT COLORS
+       ======================================== #}
+
+    {% set content_colors = content.get(
+        "colors",
+        {}
+    ) %}
+
+    {% set background_color = content_colors.get(
+        "background",
+        "rgba(255, 255, 255, 0.071)"
+    ) %}
+
+    {% set brand_color = content_colors.get(
+        "brand",
+        "#ffffff"
+    ) %}
+
+    {% set name_color = content_colors.get(
+        "name",
+        "#ffffff"
+    ) %}
+
+    {% set old_price_color = content_colors.get(
+        "old_price",
+        "#cccccc"
+    ) %}
+
+    {% set current_price_color = content_colors.get(
+        "current_price",
+        "#ffffff"
+    ) %}
+
+
+    {# ========================================
+       DECORATIVE COLORS
+       ======================================== #}
+
+    {% set primary_color = card_colors.get(
+        "primary",
+        "linear-gradient(315deg, #F54EA2, #FF7676)"
+    ) %}
+
+    {% set secondary_color = card_colors.get(
+        "secondary",
+        "linear-gradient(315deg, #17EAD9, #6078EA)"
+    ) %}
+
+
+    {# ========================================
+       SPAN ONE COLORS
+       ======================================== #}
+
+    {% set span_one_colors = card_colors.get(
+        "span_one",
+        {}
+    ) %}
+
+    {% set span_one_before_color = span_one_colors.get(
+        "before",
+        "rgba(255, 255, 255, 0.131)"
+    ) %}
+
+    {% set span_one_after_color = span_one_colors.get(
+        "after",
+        "rgba(255, 255, 255, 0.131)"
+    ) %}
+
+
+    {# ========================================
+       CARD
+       ======================================== #}
+
+    <article
+        class="featured-bike-card"
+        style="
+            --featured-bike-card-color-primary:
+                {{ primary_color }};
+
+            --featured-bike-card-color-secondary:
+                {{ secondary_color }};
+
+            --featured-bike-card-span-one-before:
+                {{ span_one_before_color }};
+
+            --featured-bike-card-span-one-after:
+                {{ span_one_after_color }};
+        "
+    >
+
+        <div class="featured-bike-card__container">
+
+            <div class="featured-bike-card__box">
+
+                <span
+                    class="
+                        featured-bike-card__span
+                        featured-bike-card__span--one
+                    "
+                ></span>
+
+
+                {# ========================================
+                   CONTENT
+                   ======================================== #}
+
+                <div
+                    class="featured-bike-card__content"
+                    style="
+                        --featured-bike-card-content-background:
+                            {{ background_color }};
+                    "
+                >
+
+                    <a
+                        class="featured-bike-card__link"
+                        href="{{ url }}"
+                    >
+
+                        <div class="featured-bike-card__image-container">
+
+                            <img
+                                class="featured-bike-card__image"
+                                src="{{ image }}"
+                                alt="{{ name }}"
+                            >
+
+                        </div>
+
+
+                        <p
+                            class="featured-bike-card__brand"
+                            style="
+                                color: {{ brand_color }};
+                            "
+                        >
+                            {{ brand }}
+                        </p>
+
+
+                        <h3
+                            class="featured-bike-card__name"
+                            style="
+                                color: {{ name_color }};
+                            "
+                        >
+                            {{ name }}
+                        </h3>
+
+
+                        <div class="featured-bike-card__prices">
+
+                            {% if old_price is not none %}
+
+                                <span
+                                    class="featured-bike-card__old-price"
+                                    style="
+                                        color: {{ old_price_color }};
+                                    "
+                                >
+                                    {{ old_price | currency }}
+                                </span>
+
+                            {% endif %}
+
+
+                            <span
+                                class="featured-bike-card__current-price"
+                                style="
+                                    color: {{ current_price_color }};
+                                "
+                            >
+                                {{ current_price | currency }}
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <div class="featured-bike-card__actions">
+
+                        <button
+                            class="featured-bike-card__button"
+                            type="button"
+                        >
+                            Añadir al carrito
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <span
+                    class="
+                        featured-bike-card__span
+                        featured-bike-card__span--two
+                    "
+                ></span>
+
+            </div>
+
+        </div>
+
+    </article>
+
+{% endmacro %}
+```

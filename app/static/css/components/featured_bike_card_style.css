@@ -1,0 +1,679 @@
+/* ========================================
+   BLOCK
+   ======================================== */
+
+.featured-bike-card {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   CONTAINER
+   ======================================== */
+
+.featured-bike-card__container {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 40px 0;
+}
+
+
+/* ========================================
+   BOX
+   ======================================== */
+
+.featured-bike-card__box {
+    position: relative;
+
+    width: 320px;
+
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+
+    margin: 40px 30px;
+}
+
+
+/* ========================================
+   DECORATIVE BACKGROUNDS
+   ======================================== */
+
+.featured-bike-card__box::before,
+.featured-bike-card__box::after {
+    content: "";
+
+    position: absolute;
+
+    top: -20px;
+    bottom: -20px;
+
+    width: 50%;
+
+    transform: skewX(15deg);
+
+    transition:
+        transform 0.5s ease,
+        left 0.5s ease,
+        width 0.5s ease;
+}
+
+
+/* ========================================
+   PRIMARY
+   ======================================== */
+
+.featured-bike-card__box::before {
+    left: 55px;
+
+    background:
+        var(--featured-bike-card-color-primary);
+}
+
+
+/* ========================================
+   SECONDARY
+   ======================================== */
+
+.featured-bike-card__box::after {
+    left: 45px;
+
+    background:
+        var(--featured-bike-card-color-secondary);
+
+    filter: blur(30px);
+}
+
+
+/* ========================================
+   DECORATIVE SPANS
+   ======================================== */
+
+.featured-bike-card__span {
+    display: block;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 50;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   SPAN ONE
+   ======================================== */
+
+.featured-bike-card__span--one::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        var(--featured-bike-card-span-one-before);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    transition:
+        top 0.5s ease,
+        left 0.5s ease,
+        right 0.5s ease,
+        bottom 0.5s ease,
+        width 0.5s ease,
+        height 0.5s ease,
+        opacity 0.5s ease;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    animation:
+        featured-bike-card-animate
+        2s ease-in-out infinite;
+}
+
+
+/* ========================================
+   SPAN ONE - AFTER
+   ======================================== */
+
+.featured-bike-card__span--one::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        var(--featured-bike-card-span-one-after);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    transition:
+        top 0.5s ease,
+        left 0.5s ease,
+        right 0.5s ease,
+        bottom 0.5s ease,
+        width 0.5s ease,
+        height 0.5s ease,
+        opacity 0.5s ease;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    animation:
+        featured-bike-card-animate-2
+        2s ease-in-out infinite;
+}
+
+
+/* ========================================
+   SPAN TWO
+   ======================================== */
+
+.featured-bike-card__span--two::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.131);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    transition:
+        top 0.5s ease,
+        left 0.5s ease,
+        right 0.5s ease,
+        bottom 0.5s ease,
+        width 0.5s ease,
+        height 0.5s ease,
+        opacity 0.5s ease;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    animation:
+        featured-bike-card-animate
+        2s ease-in-out infinite;
+}
+
+
+/* ========================================
+   SPAN TWO - AFTER
+   ======================================== */
+
+.featured-bike-card__span--two::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.131);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    transition:
+        top 0.5s ease,
+        left 0.5s ease,
+        right 0.5s ease,
+        bottom 0.5s ease,
+        width 0.5s ease,
+        height 0.5s ease,
+        opacity 0.5s ease;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    animation:
+        featured-bike-card-animate-2
+        2s ease-in-out infinite;
+}
+
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes featured-bike-card-animate {
+
+    0%,
+    100% {
+        transform: translateY(10px);
+    }
+
+    50% {
+        transform: translate(-10px);
+    }
+}
+
+@keyframes featured-bike-card-animate-2 {
+
+    0%,
+    100% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translate(10px);
+    }
+}
+
+
+/* ========================================
+   CONTENT
+   ======================================== */
+
+.featured-bike-card__content {
+    position: relative;
+
+    left: 0;
+
+    width: 100%;
+
+    padding: 20px 40px;
+
+    background:
+        var(--featured-bike-card-content-background);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.1);
+
+    z-index: 1;
+
+    color: #fff;
+
+    transition:
+        left 0.5s ease,
+        padding 0.5s ease;
+}
+
+
+/* ========================================
+   LINK
+   ======================================== */
+
+.featured-bike-card__link {
+    display: block;
+
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+/* ========================================
+   IMAGE CONTAINER
+   ======================================== */
+
+.featured-bike-card__image-container {
+    width: 100%;
+    height: 180px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   IMAGE
+   ======================================== */
+
+.featured-bike-card__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* ========================================
+   BRAND
+   ======================================== */
+
+.featured-bike-card__brand {
+    font-size: 1rem;
+
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+
+/* ========================================
+   NAME
+   ======================================== */
+
+.featured-bike-card__name {
+    font-size: 1.5rem;
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+}
+
+
+/* ========================================
+   PRICES
+   ======================================== */
+
+.featured-bike-card__prices {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+.featured-bike-card__old-price {
+    font-size: 1rem;
+
+    text-decoration: line-through;
+}
+
+.featured-bike-card__current-price {
+    font-size: 1.3rem;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   ACTIONS
+   ======================================== */
+
+.featured-bike-card__actions {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 10px;
+}
+
+
+/* ========================================
+   BUTTON
+   ======================================== */
+
+.featured-bike-card__button {
+    display: inline-block;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    color: #1a1a1a;
+
+    background: #f1f1f1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* ========================================
+   HOVER
+   ======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .featured-bike-card__box:hover::before,
+    .featured-bike-card__box:hover::after {
+        transform: skewX(0deg);
+
+        left: 10px;
+
+        width: 85%;
+    }
+
+
+    .featured-bike-card__box:hover
+    .featured-bike-card__span--one::before {
+        top: -70px;
+        left: 20px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:hover
+    .featured-bike-card__span--one::after {
+        bottom: -70px;
+        right: 60px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:hover
+    .featured-bike-card__span--two::before {
+        top: -70px;
+        left: 20px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:hover
+    .featured-bike-card__span--two::after {
+        bottom: -70px;
+        right: 60px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:hover
+    .featured-bike-card__content {
+        left: -25px;
+
+        padding: 60px 40px;
+    }
+
+
+    .featured-bike-card__box:hover
+    .featured-bike-card__image {
+        transform: scale(1.1);
+    }
+
+
+    .featured-bike-card__button:hover {
+        background: #eca20d;
+
+        color: #fff;
+
+        box-shadow:
+            0 1px 15px rgba(9, 9, 9, 0.3);
+    }
+}
+
+
+/* ========================================
+   ACTIVE
+   ======================================== */
+
+@media (hover: none) {
+
+    .featured-bike-card__box::before,
+    .featured-bike-card__box::after {
+        transition:
+            transform 0.2s ease,
+            left 0.2s ease,
+            width 0.2s ease;
+    }
+
+
+    .featured-bike-card__box:active::before,
+    .featured-bike-card__box:active::after {
+        transform: skewX(0deg);
+
+        left: 10px;
+
+        width: 85%;
+    }
+
+
+    .featured-bike-card__span--one::before,
+    .featured-bike-card__span--one::after,
+    .featured-bike-card__span--two::before,
+    .featured-bike-card__span--two::after {
+        transition:
+            top 0.2s ease,
+            left 0.2s ease,
+            right 0.2s ease,
+            bottom 0.2s ease,
+            width 0.2s ease,
+            height 0.2s ease,
+            opacity 0.2s ease;
+
+        animation-duration: 0.5s;
+    }
+
+
+    .featured-bike-card__box:active
+    .featured-bike-card__span--one::before {
+        top: -70px;
+        left: 20px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:active
+    .featured-bike-card__span--one::after {
+        bottom: -70px;
+        right: 60px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:active
+    .featured-bike-card__span--two::before {
+        top: -70px;
+        left: 20px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:active
+    .featured-bike-card__span--two::after {
+        bottom: -70px;
+        right: 60px;
+
+        width: 100px;
+        height: 100px;
+
+        opacity: 1;
+    }
+
+
+    .featured-bike-card__box:active
+    .featured-bike-card__content {
+        left: -25px;
+
+        padding: 60px 40px;
+
+        transition:
+            left 0.2s ease,
+            padding 0.2s ease;
+    }
+
+
+    .featured-bike-card__box:active
+    .featured-bike-card__image {
+        transform: scale(1.1);
+
+        transition:
+            transform 0.2s ease;
+    }
+
+
+    .featured-bike-card__button:active {
+        background: #eca20d;
+
+        color: #fff;
+
+        box-shadow:
+            0 1px 15px rgba(9, 9, 9, 0.3);
+    }
+}
+
+
+/* ========================================
+   KEYBOARD ACCESSIBILITY
+   ======================================== */
+
+.featured-bike-card__link:focus-visible,
+.featured-bike-card__button:focus-visible {
+    outline: 3px solid #eca20d;
+
+    outline-offset: 4px;
+}

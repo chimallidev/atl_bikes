@@ -2,12 +2,13 @@
 
 {% from 'components/front_page.html' import front_page %}
 {% from 'components/bike_card.html' import bike_card %}
-
+{% from 'components/featured_bike_card.html' import featured_bike_card %}
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/skew_button_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/bike_card_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/featured_bike_card_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_style.css')}}">
 {% endblock %}
 
@@ -40,6 +41,39 @@
         <h2 class="index__h2">BICICLETAS <span>DESTACADAS</span></h2>
 
         <section class="index__cards-productos">
+            {% if featured_products %}
+                {% for f_product in featured_products %}
+                    {{featured_bike_card(
+                        {
+                        "content": {
+                            "image": f_product.cover_image_url,
+                            "brand": f_product.brand,
+                            "name": f_product.name,
+                            "url": "#",
+                            "old_price": f_product.compare_at_price,
+                            "current_price": f_product.current_price,
+
+                            "colors": {
+                                "background": "oklch(0.448474 0.080961 218.7343 / 60%)",
+                                "brand": "#e7e7e7",
+                                "name": "var(--white-color)",
+                                "old_price": "#e7e7e7",
+                                "current_price": "var(--white-color)",
+                            },
+                        },
+
+                        "colors": {
+                            "primary": "linear-gradient(315deg, #8c9c84, var(--pino-oscuro))",
+                            "secondary": "linear-gradient(315deg, #a1d287, #77a65d)",
+                            "span_one": {
+                                "before": "oklch(0.6179 0.1046 199.77 / 40%)",
+                                "after": "oklch(0.6179 0.1046 199.77 / 40%)",
+                            },
+                        },
+                    }
+                    )}}
+                {% endfor %}
+            {% endif %}
 
             {% if featured_products %}
                 {% for f_product in featured_products %}
