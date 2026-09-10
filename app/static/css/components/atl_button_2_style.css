@@ -1,0 +1,193 @@
+/* ========================================
+   ATL BUTTON 2
+   ======================================== */
+
+.atl-button-2,
+.atl-button-2 * {
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   BUTTON
+   ======================================== */
+
+.atl-button-2 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 100%;
+    height: 60px;
+
+    padding: 0;
+
+    position: relative;
+
+    color: var(--atl-button-2-text-color);
+    background-color: var(--atl-button-2-background-color);
+
+    border: none;
+
+    text-decoration: none;
+    font-family: var(--font-base);
+    font-weight: 500;
+    font-size: 18px;
+
+    line-height: 1;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition: color 0.2s;
+
+    user-select: none;
+
+    z-index: 1;
+}
+
+
+/* ========================================
+   TEXT
+   ======================================== */
+
+.atl-button-2__text {
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* ========================================
+   SVG ICON
+   ======================================== */
+
+.atl-button-2__icon {
+    width: 1em;
+    height: 1em;
+
+    aspect-ratio: 1 / 1;
+
+    flex-shrink: 0;
+
+    position: relative;
+
+    color: currentColor;
+    fill: currentColor;
+
+    z-index: 3;
+}
+
+
+/* ========================================
+   EFFECT
+   ======================================== */
+
+.atl-button-2__effect {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    background-color: transparent;
+
+    border: 2px solid var(--atl-button-2-border-color);
+
+    overflow: visible;
+
+    z-index: 2;
+}
+
+
+.atl-button-2__effect::before {
+    content: "";
+
+    position: absolute;
+
+    width: 8%;
+    height: 500%;
+
+    top: 50%;
+    left: 50%;
+
+    background-color: var(--atl-button-2-background-color);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-60deg);
+
+    transition:
+        width 0.4s,
+        background-color 0.4s,
+        transform 0.4s;
+
+    z-index: 1;
+}
+
+
+/* ========================================
+   DEVICES WITH HOVER
+   ======================================== */
+
+@media (hover: hover) {
+
+    .atl-button-2:hover {
+        color: var(--atl-button-2-hover-text-color);
+    }
+
+
+    .atl-button-2:hover .atl-button-2__effect::before {
+        width: 100%;
+
+        background-color: var(--atl-button-2-hover-color);
+
+        transform:
+            translate(-50%, -50%)
+            rotate(60deg);
+    }
+
+}
+
+
+/* ========================================
+   DEVICES WITHOUT HOVER
+   ======================================== */
+
+@media (hover: none) {
+
+    .atl-button-2 {
+        transition: color 0.1s;
+    }
+
+
+    .atl-button-2__effect::before {
+        transition:
+            width 0.3s,
+            background-color 0.3s,
+            transform 0.3s;
+    }
+
+
+    .atl-button-2:active {
+        color: var(--atl-button-2-hover-text-color);
+    }
+
+
+    .atl-button-2:active .atl-button-2__effect::before {
+        width: 100%;
+
+        background-color: var(--atl-button-2-hover-color);
+
+        transform:
+            translate(-50%, -50%)
+            rotate(60deg);
+    }
+
+}

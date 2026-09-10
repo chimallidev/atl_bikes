@@ -60,6 +60,9 @@
 <body>
     {% include 'components/nav_bar.html' %}
 
+    {% block svg %}
+    {% endblock %}
+
     <main class="base__content">
         {% block content %}
         {% endblock %}

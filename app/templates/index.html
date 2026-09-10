@@ -8,8 +8,13 @@
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/skew_button_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/bike_card_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_2_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/featured_bike_card_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_style.css')}}">
+{% endblock %}
+
+{% block svg %}
+{% include "svg/index_svg_sprite.svg" %}
 {% endblock %}
 
 {% block content %}
@@ -62,6 +67,20 @@
                             },
                         },
 
+                        "button_content": {
+                            "tag": "button",
+                            "href": "/bikes",
+                            "text": "Añadir al carrito",
+                            "version": 2,
+                            "svg": "icon-cart",
+
+                            "text_color": "#000000",
+                            "border_color": "var(--tierra-claro-color)",
+                            "background_color": "#ffffff",
+                            "hover_color": "var(--tierra-claro-color)",
+                            "hover_text_color": "var(--white-color)"
+                        },
+
                         "colors": {
                             "primary": "linear-gradient(315deg, #8c9c84, var(--pino-oscuro))",
                             "secondary": "linear-gradient(315deg, #a1d287, #77a65d)",
@@ -72,56 +91,6 @@
                         },
                     }
                     )}}
-                {% endfor %}
-            {% endif %}
-
-            {% if featured_products %}
-                {% for f_product in featured_products %}
-                    {{ bike_card({
-                        "link": {
-                        "url": "#"
-                        },
-
-                        "image": {
-                            "src": f_product.cover_image_url,
-                            "alt": "Bicicleta " + f_product.name
-                        },
-
-                        "text": {
-                            "brand": f_product.brand,
-                            "name": f_product.name
-                        },
-
-                        "price": {
-                            "show_old": f_product.compare_at_price is not none,
-                            "old": f_product.compare_at_price,
-                            "current": f_product.current_price
-                        },
-
-                        "button_content": {
-
-                            "content": {
-                                "text": "Añadir al carrito"
-                            },
-                            "colors": {
-                                "text_color": "var(--secondary-color)",
-                                "text_hover": "var(--white-color)",
-                                "border": "var(--secondary-color)",
-                                "blob": "var(--secondary-color)"
-                            }
-                        },
-
-                        "style": {
-
-                            "brand_color": "var(--pino-oscuro)",
-                            "name_color": "var(--black-color)",
-
-                            "old_price_color": "var(--tierra-claro-color)",
-                            "current_price_color": "var(--main-color)",
-
-                            "shadow_color": "var(--main-color)"
-                        }
-                    }) }}
                 {% endfor %}
             {% endif %}
         </section>

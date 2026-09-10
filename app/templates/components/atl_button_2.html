@@ -1,0 +1,105 @@
+{% macro atl_button_2(data={}) %}
+
+    {# --------------------------------------------------
+       Valores por defecto
+       -------------------------------------------------- #}
+
+    {% set tag = data.get("tag", "a") %}
+    {% set text = data.get("text", "Button") %}
+    {% set data_name = data.get("data_name", "") %}
+
+    {% set version = data.get("version", 1) %}
+    {% set svg = data.get("svg", "") %}
+
+    {% set text_color = data.get("text_color", "#000000") %}
+    {% set border_color = data.get("border_color", "#000000") %}
+    {% set background_color = data.get("background_color", "#ffffff") %}
+
+    {% set hover_text_color = data.get("hover_text_color", "#ffffff") %}
+    {% set hover_color = data.get("hover_color", "#000000") %}
+
+
+    {# --------------------------------------------------
+       Botón <a>
+       -------------------------------------------------- #}
+
+    {% if tag == "a" %}
+
+        <a
+            href="{{ data.get('href', '#') }}"
+            class="atl-button-2"
+            {% if data_name %}
+                data-name="{{ data_name }}"
+            {% endif %}
+            style="
+                --atl-button-2-text-color: {{ text_color }};
+                --atl-button-2-border-color: {{ border_color }};
+                --atl-button-2-background-color: {{ background_color }};
+                --atl-button-2-hover-text-color: {{ hover_text_color }};
+                --atl-button-2-hover-color: {{ hover_color }};
+            "
+        >
+
+            {% if version == 2 and svg %}
+
+                <svg
+                    class="atl-button-2__icon"
+                    aria-hidden="true"
+                >
+                    <use href="#{{ svg }}"></use>
+                </svg>
+
+            {% endif %}
+
+            <span class="atl-button-2__text">
+                {{ text }}
+            </span>
+
+            <span class="atl-button-2__effect"></span>
+
+        </a>
+
+
+    {# --------------------------------------------------
+       Botón <button>
+       -------------------------------------------------- #}
+
+    {% elif tag == "button" %}
+
+        <button
+            type="{{ data.get('type', 'button') }}"
+            class="atl-button-2"
+            {% if data_name %}
+                data-name="{{ data_name }}"
+            {% endif %}
+            style="
+                --atl-button-2-text-color: {{ text_color }};
+                --atl-button-2-border-color: {{ border_color }};
+                --atl-button-2-background-color: {{ background_color }};
+                --atl-button-2-hover-text-color: {{ hover_text_color }};
+                --atl-button-2-hover-color: {{ hover_color }};
+            "
+        >
+
+            {% if version == 2 and svg %}
+
+                <svg
+                    class="atl-button-2__icon"
+                    aria-hidden="true"
+                >
+                    <use href="#{{ svg }}"></use>
+                </svg>
+
+            {% endif %}
+
+            <span class="atl-button-2__text">
+                {{ text }}
+            </span>
+
+            <span class="atl-button-2__effect"></span>
+
+        </button>
+
+    {% endif %}
+
+{% endmacro %}

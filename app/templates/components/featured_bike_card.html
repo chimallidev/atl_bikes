@@ -1,7 +1,7 @@
-```jinja2
 {% macro featured_bike_card(data={}) %}
+{% from 'components/atl_button_2.html' import atl_button_2 %}
 
-    {# ========================================
+{# ========================================
        DATA
        ======================================== #}
 
@@ -76,8 +76,11 @@
         "current_price",
         "#ffffff"
     ) %}
-
-
+    
+    {# ========================================
+       CONTENT BUTTON
+       ======================================== #}
+    {% set button_content = data.get("button_content", {}) %}
     {# ========================================
        DECORATIVE COLORS
        ======================================== #}
@@ -226,12 +229,7 @@
 
                     <div class="featured-bike-card__actions">
 
-                        <button
-                            class="featured-bike-card__button"
-                            type="button"
-                        >
-                            Añadir al carrito
-                        </button>
+                        {{atl_button_2(button_content)}}
 
                     </div>
 
@@ -252,4 +250,3 @@
     </article>
 
 {% endmacro %}
-```
