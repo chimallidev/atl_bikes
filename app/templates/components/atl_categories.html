@@ -1,0 +1,59 @@
+{% macro atl_categories(data={}) %}
+
+{% set default_items = [
+    {
+        "image": "/static/img/placeholder.jpg",
+        "title": "Categoría",
+        "color": "#005f73",
+        "url": "#"
+    }
+] %}
+
+{% set items = data.get("items", default_items) %}
+
+<section class="atl-categories">
+
+    <ul class="atl-categories__container">
+
+        {% for item in items %}
+
+        <li
+            class="atl-categories__item"
+            data-color="{{ item.get('color', '#005f73') }}"
+            style="--item-color: {{ item.get('color', '#005f73') }};"
+        >
+
+            <a
+                class="atl-categories__link"
+                href="{{ item.get('url', '#') }}"
+            >
+
+                <img
+                    class="atl-categories__image"
+                    src="{{ item.get('image', '/static/img/placeholder.jpg') }}"
+                    alt="{{ item.get('title', 'Categoría') }}"
+                >
+
+                <div class="atl-categories__content">
+
+                    <span class="atl-categories__text">
+
+                        <h2 class="atl-categories__title">
+                            {{ item.get('title', 'Categoría') }}
+                        </h2>
+
+                    </span>
+
+                </div>
+
+            </a>
+
+        </li>
+
+        {% endfor %}
+
+    </ul>
+
+</section>
+
+{% endmacro %}

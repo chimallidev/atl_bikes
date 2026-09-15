@@ -3,6 +3,7 @@
 {% from 'components/front_page.html' import front_page %}
 {% from 'components/bike_card.html' import bike_card %}
 {% from 'components/featured_bike_card.html' import featured_bike_card %}
+{% from 'components/atl_categories.html' import atl_categories %}
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
@@ -11,6 +12,7 @@
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_2_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/featured_bike_card_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_categories_style.css')}}">
 {% endblock %}
 
 {% block svg %}
@@ -95,9 +97,49 @@
             {% endif %}
         </section>
     </section>
+    <section class="index__categorias">
+        <h2 class="index__h2">CATEGORÍAS</h2>
+        {{atl_categories(
+            {
+            "items": [
+                {
+                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/montana/montana-1.webp",
+                    "title": "Montaña",
+                    "color": "var(--main-color)",
+                    "url": "#"
+                },
+                {
+                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/gravel/gravel-1.webp",
+                    "title": "Gravel",
+                    "color": "var(--pino-oscuro)",
+                    "url": "#"
+                },
+                {
+                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/ruta/ruta-1.webp",
+                    "title": "Ruta",
+                    "color": "var(--pino-claro)",
+                    "url": "#"
+                },
+                {
+                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/electricas/electricas-1.webp",
+                    "title": "Eléctricas",
+                    "color": "var(--tierra-color)",
+                    "url": "#"
+                },
+                {
+                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/accesorios/accesorios-1.webp",
+                    "title": "Accesorios",
+                    "color": "var(--secondary-color)",
+                    "url": "#"
+                },
+            ]
+            }
+        )}}
+    </section>
 {% endblock %}
 
 
 
 {% block component_scripts %}
+<script type="module" src="{{url_for("static", path="js/components/atl_categories.js")}}"></script>
 {% endblock %}
