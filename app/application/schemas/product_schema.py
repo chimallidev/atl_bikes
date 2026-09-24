@@ -16,3 +16,13 @@ class FeaturedProductResponse(BaseModel):
     compare_at_price: Decimal | None
     is_featured: bool
     cover_image_url: str
+
+class BestsellingProductResponse(BaseModel):
+    id: int
+    name: str
+    slug: str
+    brand: str
+    cover_image_url: str
+    current_price: Decimal
+    compare_at_price: Decimal | None
+    is_featured: bool

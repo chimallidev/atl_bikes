@@ -1,4 +1,4 @@
-.index__h2 {
+.index__h1, .index__h2 {
     font-size: clamp(2rem,3.5vw,4rem);
     font-family: var(--font-title);
     color: var(--black-color);
@@ -10,7 +10,7 @@
     padding: 8% 6% 4% 6%;
 }
 
-.index__productos-destacados .index__h2 span {
+.index__title span {
     color: var(--main-color);
 }
 
@@ -24,12 +24,28 @@
     padding: 4% 0;
 }
 
+.index__bicicletas-mas-vendidas {
+    padding: 4% 6%;
+}
+
+.index__best-selling-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 @media (max-width:900px){
 
     .index__cards-productos{
 
         grid-template-columns:repeat(2,1fr);
 
+    }
+
+    .index__best-selling-container {
+        display:grid;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
 }
@@ -43,4 +59,9 @@
 
     }
 
+    .index__best-selling-container {
+        display:grid;
+
+        grid-template-columns: 1fr;
+    }
 }

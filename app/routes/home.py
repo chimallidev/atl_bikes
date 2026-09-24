@@ -6,6 +6,7 @@ from fastapi.responses import HTMLResponse
 from ..application.services.product_featured_service import (
     ProductFeaturedService,
 )
+from ..application.services.product_bestselling_service import ProductBestsellingService
 from ..infrastructure.unit_of_work import (
     SQLAlchemyUnitOfWork,
 )
@@ -53,10 +54,29 @@ async def home(request: Request):
             detail="No fue posible obtener los productos destacados.",
         ) from error
 
+    product_ids = [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+    ]
+
+    service = ProductBestsellingService(
+        unit_of_work=SQLAlchemyUnitOfWork(),
+    )
+
+    bestselling_products = service.get_bestselling(
+        product_ids=product_ids,
+    )
     return templates.TemplateResponse(
         request=request,
         name="index.html",
         context={
             "featured_products": featured_products,
+            "bestselling_products": bestselling_products
         },
     )

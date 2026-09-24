@@ -45,7 +45,7 @@
         }) }}
     </section>
     <section class="index__productos-destacados">
-        <h2 class="index__h2">BICICLETAS <span>DESTACADAS</span></h2>
+        <h1 class="index__h1 index__title">BICICLETAS <span>DESTACADAS</span></h1>
 
         <section class="index__cards-productos">
             {% if featured_products %}
@@ -98,7 +98,7 @@
         </section>
     </section>
     <section class="index__categorias">
-        <h2 class="index__h2">CATEGORÍAS</h2>
+        <h2 class="index__h2 index__title">CATEGORÍAS</h2>
         {{atl_categories(
             {
             "items": [
@@ -135,6 +135,56 @@
             ]
             }
         )}}
+    </section>
+    <section class="index__bicicletas-mas-vendidas">
+        <h2 class="index__h2 index__title">BICICLETAS <span>MÁS VENDIDAS</span></h2>
+        <div class="index__best-selling-container">
+            {% for b_card in bestselling_products %}
+                {{bike_card({
+                    "link": {
+                        "url": "#"
+                    },
+
+                    "image": {
+                            "src": b_card.cover_image_url,
+                            "alt": "Bicicleta " + featured_products[0].name
+                    },
+
+                    "text": {
+                        "brand": b_card.brand,
+                        "name": b_card.name
+                    },
+
+                    "price": {
+                        "show_old": b_card.compare_at_price is not none,
+                        "old": b_card.compare_at_price,
+                        "current": b_card.current_price
+                    },        
+
+                    "button_content": {
+                        "content": {
+                            "icon": "icon-cart",
+                            "text": "AÑADIR AL CARRITO"   
+                        },
+
+                        "colors": {
+                            "text_color": "var(--black-color)"
+                        },
+                    },
+                    "style": {
+
+                        "brand_color": "var(--pino-oscuro)",
+                        "name_color": "var(--black-color)",
+
+                        "old_price_color": "var(--tierra-claro-color)",
+                        "current_price_color": "var(--main-color)",
+
+                        "shadow_color": "var(--main-color)"
+                    }
+
+                })}}
+            {% endfor %}
+        </div>
     </section>
 {% endblock %}
 

@@ -15,15 +15,18 @@
     --btn-border: #06c8d9;
     --btn-blob: #06c8d9;
 
+    width: 100%;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: .65rem;
+
+    gap: .55em;
 
     position: relative;
     z-index: 1;
 
-    padding: .9em 1.6em;
+    padding: .9em 1em;
 
     cursor: pointer;
 
@@ -37,10 +40,16 @@
 
     color: var(--btn-text);
 
-    font-size: 16px;
     font-weight: 700;
 
+    /*
+       El tamaño del texto se adapta al ancho
+       disponible del contenedor.
+    */
+    font-size: clamp(10px, 5cqw, 18px);
+
     letter-spacing: 2px;
+
     text-transform: uppercase;
 
     white-space: nowrap;
@@ -58,10 +67,12 @@
 
 .atl-button__icon {
 
-    width: 1.15em;
-    height: 1.15em;
+    width: 1em;
+    height: 1em;
 
-    flex-shrink: 0;
+    aspect-ratio: 1 / 1;
+
+    flex: 0 1 1em;
 
     fill: currentColor;
 
@@ -81,6 +92,8 @@
     z-index: 2;
 
     line-height: 1;
+
+    min-width: 0;
 
 }
 
@@ -138,6 +151,7 @@
 
 }
 
+
 .atl-button__blobs div:nth-child(2) {
 
     left: 28%;
@@ -145,6 +159,7 @@
     transition-delay: 60ms;
 
 }
+
 
 .atl-button__blobs div:nth-child(3) {
 
@@ -167,6 +182,7 @@
 
     }
 
+
     .atl-button:hover .atl-button__blobs div {
 
         transform: scale(1.4) translateY(0) translateZ(0);
@@ -188,17 +204,20 @@
 
     }
 
+
     .atl-button__blobs div {
 
         transition: all .2s ease;
 
     }
 
+
     .atl-button:active {
 
         color: var(--btn-text-hover);
 
     }
+
 
     .atl-button:active .atl-button__blobs div {
 
@@ -219,9 +238,11 @@
 
 }
 
+
 .atl-button:focus-visible {
 
     outline: 3px solid var(--btn-border);
+
     outline-offset: 4px;
 
 }

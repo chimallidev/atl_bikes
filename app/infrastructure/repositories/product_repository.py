@@ -124,3 +124,26 @@ class SQLAlchemyProductRepository(ProductRepository):
             product,
             model,
         )
+
+    def get_by_ids(
+    self,
+    product_ids: list[int],
+    ):
+        if not product_ids:
+            return []
+
+        statement = (
+            select(ProductModel)
+            .where(ProductModel.id.in_(product_ids))
+            .options(
+                selectinload(ProductModel.brand),
+                selectinload(ProductModel.images),
+            )
+        )
+
+        models = self._session.scalars(statement).all()
+
+        return [
+            ProductMapper.to_domain(model)
+            for model in models
+        ]

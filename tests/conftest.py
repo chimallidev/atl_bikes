@@ -114,3 +114,69 @@ def use_test_database(monkeypatch):
         "app.infrastructure.unit_of_work.SessionLocal",
         TestingSessionLocal,
     )
+
+@pytest.fixture
+def bestselling_products(
+    test_db_session,
+):
+    brand = BrandModel(
+        name="Test Brand",
+        slug="test-brand",
+    )
+
+    category = CategoryModel(
+        name="Test Category",
+        slug="test-category",
+    )
+
+    test_db_session.add_all(
+        [
+            brand,
+            category,
+        ]
+    )
+
+    test_db_session.commit()
+
+    products = []
+
+    for i in range(1, 9):
+        product = ProductModel(
+            name=f"Test Bike {i}",
+            slug=f"test-bike-{i}",
+            brand=brand,
+            category=category,
+            current_price=Decimal(
+                f"{i}000.00"
+            ),
+            is_featured=False,
+        )
+
+        image = ProductImageModel(
+            product=product,
+            image_url=(
+                f"https://example.com/"
+                f"image-{i}.jpg"
+            ),
+            is_cover=True,
+        )
+
+        test_db_session.add(product)
+        test_db_session.add(image)
+
+        products.append(product)
+
+    test_db_session.commit()
+
+    for product in products:
+        test_db_session.refresh(product)
+
+    yield products
+
+    for product in products:
+        test_db_session.delete(product)
+
+    test_db_session.delete(category)
+    test_db_session.delete(brand)
+
+    test_db_session.commit()

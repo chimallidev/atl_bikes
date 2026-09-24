@@ -37,3 +37,10 @@ class ProductRepository(ABC):
         product_id: int,
     ) -> Product | None:
         ...
+
+    @abstractmethod
+    def get_by_ids(
+        self,
+        product_ids: list[int],
+    ) -> list[Product]:
+        ...

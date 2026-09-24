@@ -8,8 +8,6 @@
 
     width:100%;
 
-    padding:8px;
-
     background:transparent;
 
     text-decoration:none;
@@ -157,13 +155,17 @@
 }
 
 .bike-card__button-container {
-    display:flex;
 
-    flex-direction:column;
+    display: flex;
 
-    gap:.55rem;
+    flex-direction: column;
+
+    gap: .55rem;
 
     padding: 0 1rem 1rem 1rem;
+
+    container-type: inline-size;
+
 }
 
 
@@ -178,12 +180,6 @@
         box-shadow:
             0 0 14px -1px var(--bike-card-shadow),
             12px 12px 28px -4px var(--bike-card-shadow);
-
-    }
-
-    .bike-card:hover .bike-card__image{
-
-        transform:scale(1.04);
 
     }
 
@@ -216,12 +212,6 @@
         box-shadow:
             0 0 14px -1px var(--bike-card-shadow),
             12px 12px 28px -4px var(--bike-card-shadow);
-
-    }
-
-    .bike-card:active .bike-card__image{
-
-        transform:scale(1.04);
 
     }
 

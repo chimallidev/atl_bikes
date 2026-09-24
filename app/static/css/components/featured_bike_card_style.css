@@ -527,13 +527,6 @@
         padding: 60px 40px;
     }
 
-
-    .featured-bike-card__box:hover
-    .featured-bike-card__image {
-        transform: scale(1.1);
-    }
-
-
     .featured-bike-card__button:hover {
         background: #eca20d;
 
