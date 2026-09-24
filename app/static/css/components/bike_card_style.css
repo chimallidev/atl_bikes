@@ -39,7 +39,8 @@
     aspect-ratio:1 / 1;
 
     overflow:hidden;
-    text-decoration: none;
+
+    text-decoration:none;
 
 }
 
@@ -52,7 +53,9 @@
 
     height:100%;
 
-    object-fit:cover;
+    object-fit:contain;
+
+    object-position:center;
 
     transition:transform .35s ease;
 
@@ -68,7 +71,8 @@
     gap:.55rem;
 
     padding:1rem;
-    text-decoration: none;
+
+    text-decoration:none;
 
 }
 
@@ -154,17 +158,18 @@
 
 }
 
-.bike-card__button-container {
 
-    display: flex;
+.bike-card__button-container{
 
-    flex-direction: column;
+    display:flex;
 
-    gap: .55rem;
+    flex-direction:column;
 
-    padding: 0 1rem 1rem 1rem;
+    gap:.55rem;
 
-    container-type: inline-size;
+    padding:0 1rem 1rem 1rem;
+
+    container-type:inline-size;
 
 }
 
