@@ -4,6 +4,7 @@
 {% from 'components/bike_card.html' import bike_card %}
 {% from 'components/featured_bike_card.html' import featured_bike_card %}
 {% from 'components/atl_categories.html' import atl_categories %}
+{% from 'components/weather_ticker.html' import weather_ticker %}
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
@@ -13,6 +14,7 @@
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/featured_bike_card_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_categories_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/weather_ticker_style.css')}}">
 {% endblock %}
 
 {% block svg %}
@@ -186,10 +188,46 @@
             {% endfor %}
         </div>
     </section>
+    <section class="index__clima">
+        {{weather_ticker(
+            {
+            "appearance": {
+                "background": "var(--main-color)",
+                "text_color": "var(--white-color)"
+            },
+
+            "behavior": {
+                "autoplay": true,
+                "speed": 55
+            },
+
+            "items": [
+                {
+                    "icon": "☀️",
+                    "text": "Ciudad de México 24 °C"
+                },
+                {
+                    "icon": "💧",
+                    "text": "Humedad 65%"
+                },
+                {
+                    "icon": "🌬️",
+                    "text": "Viento 12 km/h"
+                },
+                {
+                    "icon": "🌧️",
+                    "text": "Probabilidad de lluvia 20%"
+                }
+            ]
+            }
+        )}}
+    </section>
 {% endblock %}
 
 
 
 {% block component_scripts %}
 <script type="module" src="{{url_for("static", path="js/components/atl_categories.js")}}"></script>
+<script type="module" src="{{url_for("static", path="js/components/weather_ticker.js")}}"></script>
+<script type="module" src="{{url_for("static", path="js/main.js")}}"></script>
 {% endblock %}

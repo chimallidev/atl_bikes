@@ -1,0 +1,242 @@
+/* ==========================================================
+   WEATHER TICKER
+========================================================== */
+
+.weather-ticker {
+
+    --weather-ticker-background: #005f73;
+    --weather-ticker-text-color: #ffffff;
+    --weather-ticker-speed: 40s;
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background:
+        var(--weather-ticker-background);
+
+    color:
+        var(--weather-ticker-text-color);
+
+}
+
+
+/* ==========================================================
+   VIEWPORT
+========================================================== */
+
+.weather-ticker__viewport {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+}
+
+
+/* ==========================================================
+   FADE
+========================================================== */
+
+.weather-ticker__viewport::before,
+.weather-ticker__viewport::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    z-index: 2;
+
+    width: 4rem;
+
+    pointer-events: none;
+
+}
+
+
+.weather-ticker__viewport::before {
+
+    left: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            var(--weather-ticker-background),
+            transparent
+        );
+
+}
+
+
+.weather-ticker__viewport::after {
+
+    right: 0;
+
+    background:
+        linear-gradient(
+            to left,
+            var(--weather-ticker-background),
+            transparent
+        );
+
+}
+
+
+/* ==========================================================
+   TRACK
+========================================================== */
+
+.weather-ticker__track {
+
+    width: max-content;
+
+    will-change: transform;
+
+    transform:
+        translate3d(0, 0, 0);
+
+}
+
+
+/* ==========================================================
+   ANIMATION CONTAINER
+========================================================== */
+
+.weather-ticker__animation {
+
+    width: max-content;
+
+}
+
+
+/* ==========================================================
+   GROUP
+========================================================== */
+
+.weather-ticker__group {
+
+    display: flex;
+
+    width: max-content;
+
+    align-items: center;
+
+    gap: 2.5rem;
+
+    padding:
+        0.625rem 1rem;
+
+}
+
+
+/* ==========================================================
+   ITEM
+========================================================== */
+
+.weather-ticker__item {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    flex-shrink: 0;
+
+    white-space: nowrap;
+
+    font-size: 0.875rem;
+
+}
+
+
+/* ==========================================================
+   ICON
+========================================================== */
+
+.weather-ticker__icon {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+}
+
+
+/* ==========================================================
+   TEXT
+========================================================== */
+
+.weather-ticker__text {
+
+    white-space: nowrap;
+
+}
+
+
+/* ==========================================================
+   PC / MOUSE
+========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .weather-ticker__viewport {
+
+        cursor: grab;
+
+    }
+
+
+    .weather-ticker__viewport:active {
+
+        cursor: grabbing;
+
+    }
+
+}
+
+
+/* ==========================================================
+   TOUCH
+========================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .weather-ticker__viewport {
+
+        cursor: default;
+
+    }
+
+}
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .weather-ticker__track {
+
+        transition: none;
+
+    }
+
+}
