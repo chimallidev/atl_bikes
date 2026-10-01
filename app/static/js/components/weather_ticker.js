@@ -478,3 +478,128 @@
      });
 
  }
+
+
+ const WEATHER_ICON_MAP = {
+    clear: "icon-weather-clear",
+    partly_cloudy: "icon-weather-partly-cloudy",
+    cloudy: "icon-weather-cloudy",
+    rain: "icon-weather-rain",
+    storm: "icon-weather-storm",
+    snow: "icon-weather-snow",
+    fog: "icon-weather-fog",
+};
+
+export function updateWeatherTicker(weather) {
+
+    const group = getWeatherTickerGroup();
+
+    if (!group) {
+        return;
+    }
+
+    const iconId = WEATHER_ICON_MAP[weather.weather_type];
+
+    if (!iconId) {
+        setWeatherTickerError();
+        return;
+    }
+
+    group.replaceChildren();
+
+    group.appendChild(
+        createWeatherIcon(iconId)
+    );
+
+    const text = document.createElement("span");
+
+    text.textContent = (
+        `${weather.city} · ` +
+        `${weather.temperature}°C · ` +
+        `${weather.description}`
+    );
+
+    group.appendChild(text);
+}
+
+
+export function setWeatherTickerLoading() {
+
+    const group = getWeatherTickerGroup();
+
+    if (!group) {
+        return;
+    }
+
+    group.replaceChildren();
+
+    group.appendChild(
+        createWeatherIcon("icon-weather-loading")
+    );
+
+    const text = document.createElement("span");
+
+    text.textContent = "Obteniendo información del clima...";
+
+    group.appendChild(text);
+}
+
+export function setWeatherTickerError() {
+
+    const group = getWeatherTickerGroup();
+
+    if (!group) {
+        return;
+    }
+
+    group.replaceChildren();
+
+    group.appendChild(
+        createWeatherIcon("icon-weather-unavailable")
+    );
+
+    const text = document.createElement("span");
+
+    text.textContent = "No se pudo obtener el clima.";
+
+    group.appendChild(text);
+}
+
+function getWeatherTickerGroup() {
+
+    const ticker = document.querySelector(
+        "[data-weather-ticker]"
+    );
+
+    if (!ticker) {
+        return null;
+    }
+
+    return ticker.querySelector(
+        ".weather-ticker__group"
+    );
+}
+
+function createWeatherIcon(iconId) {
+
+    const svg = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg",
+    );
+
+    svg.classList.add("weather-ticker__icon");
+
+    const use = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "use",
+    );
+
+    use.setAttribute(
+        "href",
+        `#${iconId}`,
+    );
+
+    svg.appendChild(use);
+
+    return svg;
+}

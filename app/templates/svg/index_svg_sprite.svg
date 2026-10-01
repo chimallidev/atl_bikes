@@ -10,4 +10,300 @@
         />
     </symbol>
 
+    <!-- ==========================================================
+     WEATHER ICONS
+========================================================== -->
+
+<symbol id="icon-weather-clear" viewBox="0 0 24 24">
+    <!-- Sol -->
+    <circle
+        cx="12"
+        cy="12"
+        r="4"
+        fill="#FFD54F"
+    />
+
+    <!-- Rayos -->
+    <path
+        d="M12 2V5"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M12 19V22"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M2 12H5"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M19 12H22"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M4.93 4.93L7.05 7.05"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M16.95 16.95L19.07 19.07"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M19.07 4.93L16.95 7.05"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M7.05 16.95L4.93 19.07"
+        stroke="#FFA000"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+</symbol>
+
+
+<symbol id="icon-weather-partly-cloudy" viewBox="0 0 24 24">
+    <!-- Sol -->
+    <circle
+        cx="9"
+        cy="9"
+        r="4"
+        fill="#FFD54F"
+    />
+
+    <!-- Nube -->
+    <path
+        d="M7 19H17.5C19.43 19 21 17.43 21 15.5C21 13.69 19.62 12.2 17.86 12.03C17.43 9.7 15.39 8 13 8C10.46 8 8.33 9.92 8.03 12.39C5.76 12.55 4 14.44 4 16.75C4 18 5.34 19 7 19Z"
+        fill="#ECEFF1"
+        stroke="#90A4AE"
+        stroke-width="1"
+    />
+</symbol>
+
+
+<symbol id="icon-weather-cloudy" viewBox="0 0 24 24">
+    <!-- Nube principal -->
+    <path
+        d="M6 19H18C20.21 19 22 17.21 22 15C22 12.93 20.43 11.23 18.41 11.02C17.86 8.16 15.34 6 12.3 6C9.1 6 6.47 8.4 6.13 11.51C3.79 11.7 2 13.66 2 16C2 17.66 3.79 19 6 19Z"
+        fill="#B0BEC5"
+        stroke="#78909C"
+        stroke-width="1"
+    />
+</symbol>
+
+
+<symbol id="icon-weather-rain" viewBox="0 0 24 24">
+    <!-- Nube -->
+    <path
+        d="M6 14H18C20.21 14 22 12.21 22 10C22 7.93 20.43 6.23 18.41 6.02C17.86 3.16 15.34 1 12.3 1C9.1 1 6.47 3.4 6.13 6.51C3.79 6.7 2 8.66 2 11C2 12.66 3.79 14 6 14Z"
+        fill="#78909C"
+    />
+
+    <!-- Lluvia -->
+    <path
+        d="M7 17L6 20"
+        stroke="#42A5F5"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M12 17L11 20"
+        stroke="#42A5F5"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M17 17L16 20"
+        stroke="#42A5F5"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+</symbol>
+
+
+<symbol id="icon-weather-storm" viewBox="0 0 24 24">
+    <!-- Nube -->
+    <path
+        d="M5 14H18C20.21 14 22 12.21 22 10C22 7.93 20.43 6.23 18.41 6.02C17.86 3.16 15.34 1 12.3 1C9.1 1 6.47 3.4 6.13 6.51C3.79 6.7 2 8.66 2 11C2 12.66 3.79 14 5 14Z"
+        fill="#546E7A"
+    />
+
+    <!-- Rayo -->
+    <path
+        d="M13 13L9 19H12L11 23L17 16H14L16 13Z"
+        fill="#FFD54F"
+    />
+</symbol>
+
+
+<symbol id="icon-weather-snow" viewBox="0 0 24 24">
+    <!-- Nube -->
+    <path
+        d="M6 14H18C20.21 14 22 12.21 22 10C22 7.93 20.43 6.23 18.41 6.02C17.86 3.16 15.34 1 12.3 1C9.1 1 6.47 3.4 6.13 6.51C3.79 6.7 2 8.66 2 11C2 12.66 3.79 14 6 14Z"
+        fill="#B0BEC5"
+    />
+
+    <!-- Copos -->
+    <g
+        stroke="#42A5F5"
+        stroke-width="1.5"
+        stroke-linecap="round"
+    >
+        <path d="M7 17V21" />
+        <path d="M5.3 18L8.7 20" />
+        <path d="M8.7 18L5.3 20" />
+
+        <path d="M13 17V21" />
+        <path d="M11.3 18L14.7 20" />
+        <path d="M14.7 18L11.3 20" />
+
+        <path d="M19 17V21" />
+        <path d="M17.3 18L20.7 20" />
+        <path d="M20.7 18L17.3 20" />
+    </g>
+</symbol>
+
+
+<symbol id="icon-weather-fog" viewBox="0 0 24 24">
+    <!-- Niebla -->
+    <g
+        stroke="#90A4AE"
+        stroke-width="2"
+        stroke-linecap="round"
+    >
+        <path d="M4 7H20" />
+        <path d="M2 12H22" />
+        <path d="M4 17H20" />
+    </g>
+</symbol>
+
+
+<!-- ==========================================================
+     UI STATES
+========================================================== -->
+
+<symbol id="icon-weather-loading" viewBox="0 0 24 24">
+    <!-- Parte superior -->
+    <path
+        d="M6 3H18"
+        stroke="#90A4AE"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <!-- Parte inferior -->
+    <path
+        d="M6 21H18"
+        stroke="#90A4AE"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <!-- Vidrio -->
+    <path
+        d="M7 4C7 8 9 9.5 12 12C9 14.5 7 16 7 20"
+        fill="none"
+        stroke="#78909C"
+        stroke-width="1.5"
+    />
+
+    <path
+        d="M17 4C17 8 15 9.5 12 12C15 14.5 17 16 17 20"
+        fill="none"
+        stroke="#78909C"
+        stroke-width="1.5"
+    />
+
+    <!-- Arena superior -->
+    <path
+        d="M8.5 5H15.5C15.2 7.5 14 9 12 10.5C10 9 8.8 7.5 8.5 5Z"
+        fill="#FFD54F"
+    />
+
+    <!-- Arena inferior -->
+    <path
+        d="M9 19H15C14.7 17 13.7 15.5 12 14C10.3 15.5 9.3 17 9 19Z"
+        fill="#FFD54F"
+    />
+</symbol>
+
+
+<symbol id="icon-weather-unavailable" viewBox="0 0 24 24">
+
+    <!-- Sol -->
+    <circle
+        cx="9"
+        cy="9"
+        r="4"
+        fill="#FFD54F"
+    />
+
+    <path
+        d="M9 2V4"
+        stroke="#FFA000"
+        stroke-width="1.5"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M9 14V16"
+        stroke="#FFA000"
+        stroke-width="1.5"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M2 9H4"
+        stroke="#FFA000"
+        stroke-width="1.5"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M14 9H16"
+        stroke="#FFA000"
+        stroke-width="1.5"
+        stroke-linecap="round"
+    />
+
+    <!-- X -->
+    <path
+        d="M14 14L21 21"
+        stroke="#EF5350"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+    <path
+        d="M21 14L14 21"
+        stroke="#EF5350"
+        stroke-width="2"
+        stroke-linecap="round"
+    />
+
+</symbol>
+
 </svg>
+

@@ -4,7 +4,6 @@ export async function initWeather() {
         .resolvedOptions()
         .timeZone;
 
-
     const response = await fetch(
         `/api/weather?timezone=${encodeURIComponent(timezone)}`
     );

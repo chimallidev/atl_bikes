@@ -23,6 +23,18 @@
 }
 
 
+.weather-ticker__icon {
+
+    display: block;
+
+    width: 1em;
+
+    height: 1em;
+
+    flex: 0 0 1em;
+
+}
+
 /* ==========================================================
    VIEWPORT
 ========================================================== */
@@ -134,10 +146,12 @@
 
     align-items: center;
 
-    gap: 2.5rem;
+    gap: .5rem;
 
     padding:
         0.625rem 1rem;
+
+    white-space: nowrap;
 
 }
 
