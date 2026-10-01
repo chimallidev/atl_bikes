@@ -18,7 +18,7 @@ const initializeApp = async () => {
 
     try {
 
-        const weather = await initWeather1();
+        const weather = await initWeather();
 
         updateWeatherTicker(weather);
 
