@@ -25,6 +25,8 @@
     flex-wrap: wrap;
 
     padding: 40px 0;
+
+    box-sizing: border-box;
 }
 
 
@@ -35,13 +37,19 @@
 .featured-bike-card__box {
     position: relative;
 
-    width: 320px;
+    width: min(320px, calc(100% - 60px));
+
+    flex: 0 0 min(320px, calc(100% - 60px));
+
+    min-width: 0;
 
     display: flex;
     justify-content: center;
     align-items: stretch;
 
     margin: 40px 30px;
+
+    box-sizing: border-box;
 }
 
 
@@ -277,6 +285,7 @@
     }
 }
 
+
 @keyframes featured-bike-card-animate-2 {
 
     0%,
@@ -300,6 +309,12 @@
     left: 0;
 
     width: 100%;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    aspect-ratio: 1 / 1;
 
     padding: 20px 40px;
 
@@ -328,6 +343,10 @@
 .featured-bike-card__link {
     display: block;
 
+    width: 100%;
+
+    min-width: 0;
+
     color: inherit;
 
     text-decoration: none;
@@ -340,9 +359,14 @@
 
 .featured-bike-card__image-container {
     width: 100%;
-    height: 180px;
+
+    aspect-ratio: 1 / 1;
+
+    text-decoration: none;
 
     overflow: hidden;
+
+    min-width: 0;
 }
 
 
@@ -356,7 +380,8 @@
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
 
     transition:
         transform 0.5s ease;
@@ -400,18 +425,32 @@
     gap: 10px;
 
     margin-bottom: 15px;
+
+    min-width: 0;
+
+    flex-wrap: wrap;
 }
 
+
 .featured-bike-card__old-price {
+    min-width: 0;
+
     font-size: 1rem;
 
     text-decoration: line-through;
+
+    overflow-wrap: anywhere;
 }
 
+
 .featured-bike-card__current-price {
+    min-width: 0;
+
     font-size: 1.3rem;
 
     font-weight: 700;
+
+    overflow-wrap: anywhere;
 }
 
 
@@ -425,6 +464,8 @@
     z-index: 2;
 
     margin-top: 10px;
+
+    min-width: 0;
 }
 
 
@@ -526,6 +567,7 @@
 
         padding: 60px 40px;
     }
+
 
     .featured-bike-card__button:hover {
         background: #eca20d;

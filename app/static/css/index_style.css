@@ -17,7 +17,7 @@
 .index__cards-productos {
     display:grid;
 
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:repeat(3, minmax(0, 1fr));
 }
 
 .index__categorias {
@@ -54,6 +54,8 @@
 @media (max-width:600px){
 
     .index__cards-productos{
+        display:grid;
+
 
         grid-template-columns:1fr;
 
