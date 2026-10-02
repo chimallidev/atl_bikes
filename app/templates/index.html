@@ -5,6 +5,7 @@
 {% from 'components/featured_bike_card.html' import featured_bike_card %}
 {% from 'components/atl_categories.html' import atl_categories %}
 {% from 'components/weather_ticker.html' import weather_ticker %}
+{% from 'components/banner_blog.html' import banner_blog %}
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
@@ -15,6 +16,7 @@
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_categories_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/weather_ticker_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/banner_blog_style.css')}}">
 {% endblock %}
 
 {% block svg %}
@@ -202,6 +204,36 @@
             },
             }
         )}}
+    </section>
+    <section class="index__blog">
+        {{banner_blog({
+            "bg_color_1": "var(--main-color)",
+            "bg_color_2": "var(--secondary-color)",
+
+            "image": "/static/img/mundo-ciclismo-mexico-ATL-Bikes.webp",
+
+            "title": "El mundo del ciclismo",
+            
+            "subtitle": (
+                "Descubre consejos, rutas, novedades y todo lo que necesitas "
+                "para disfrutar al máximo de tu bicicleta."
+            ),
+
+            "title_color": "#ffffff",
+            "subtitle_color": "#ffffff",
+
+            "button_content": {
+                "text": "LEER BLOG",
+                "colors": {
+                    "text": "var(--white-color)",
+                    "background": "var(--secondary-color)",
+                    "hover_text": "var(--white-color)",
+                    "outline": "var(--white-color)",
+                    "hover_outline": "var(--pino-oscuro)",
+                    "shadow": "var(--pino-oscuro)"
+                }
+            },
+        })}}
     </section>
 {% endblock %}
 

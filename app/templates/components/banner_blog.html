@@ -1,0 +1,75 @@
+{% macro banner_blog(data={}) %}
+
+{% from 'components/skew_button.html' import skew_button %}
+
+{% set bg_color_1 = data.get("bg_color_1", "#005f73") %}
+{% set bg_color_2 = data.get("bg_color_2", "#03989e") %}
+
+{% set image = data.get("image", "/static/images/default/hero.webp") %}
+
+{% set title = data.get("title", "ATL bikes") %}
+
+{% set subtitle = data.get(
+    "subtitle",
+    "Inspirados en la fuerza y la fluidez del agua, ofrecemos bicicletas para cualquier terreno y aventura."
+) %}
+
+{% set title_color = data.get("title_color", "#ffffff") %}
+{% set subtitle_color = data.get("subtitle_color", "#ffffff") %}
+
+{% set button_content = data.get("button_content", {}) %}
+
+
+<section
+    class="banner-blog"
+    style="
+        --banner-blog-bg-1: {{ bg_color_1 }};
+        --banner-blog-bg-2: {{ bg_color_2 }};
+    "
+>
+
+    <div class="banner-blog__image">
+
+        <img
+            class="banner-blog__image-element"
+            src="{{ image }}"
+            alt="{{ title }}"
+        >
+
+    </div>
+
+
+    <div class="banner-blog__content">
+
+        <div class="banner-blog__content-inner">
+
+            <h2
+                class="banner-blog__title"
+                style="
+                    --banner-blog-title-color: {{ title_color }};
+                "
+            >
+                {{ title }}
+            </h2>
+
+
+            <p
+                class="banner-blog__subtitle"
+                style="
+                    --banner-blog-subtitle-color: {{ subtitle_color }};
+                "
+            >
+                {{ subtitle }}
+            </p>
+
+            <div class="banner-blog__button">
+                {{ skew_button(button_content) }}
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endmacro %}
