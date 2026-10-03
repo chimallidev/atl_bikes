@@ -34,6 +34,22 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.index__atl-brands {
+    padding: 8% 6% 4% 6%;
+}
+
+.index__atl-brands-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    justify-items: center;
+
+    gap: 30px;
+}
+
 @media (max-width:900px){
 
     .index__cards-productos{
@@ -46,6 +62,10 @@
         display:grid;
 
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .index__atl-brands-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 
 }
@@ -65,5 +85,13 @@
         display:grid;
 
         grid-template-columns: 1fr;
+    }
+
+    .index__atl-brands-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .index__atl-brands-grid .atl-brands-card {
+        --atl-brands-card-animation-delay: 0s;
     }
 }

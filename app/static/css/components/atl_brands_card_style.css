@@ -1,0 +1,211 @@
+/* ========================================
+   ATL BRANDS CARD
+   ======================================== */
+
+
+/* ========================================
+   BLOCK
+   ======================================== */
+
+.atl-brands-card {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: var(--atl-brands-card-background);
+
+    border: 1px solid var(--atl-brands-card-border-color);
+
+    box-shadow:
+        12px 12px 2px 1px
+        var(--atl-brands-card-shadow-color);
+
+    text-decoration: none;
+
+    transition:
+        box-shadow 0.2s ease;
+}
+
+
+/* ========================================
+   ELEMENT
+   ======================================== */
+
+.atl-brands-card__logo-wrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+.atl-brands-card__logo {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 75%;
+    max-height: 75%;
+
+    object-fit: contain;
+
+    /*
+     * Estado inicial.
+     * La animación NO comienza aquí.
+     */
+    opacity: 0;
+
+    transform: translateY(40px);
+}
+
+
+/* ========================================
+   LOGO VISIBLE
+   ======================================== */
+
+.atl-brands-card__logo.is-visible {
+
+    animation-name: atl-brands-card-logo-enter;
+
+    animation-duration:
+        var(
+            --atl-brands-card-animation-duration,
+            0.6s
+        );
+
+    animation-timing-function: ease-out;
+
+    animation-delay:
+        var(
+            --atl-brands-card-animation-delay,
+            0s
+        );
+
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+
+}
+
+
+/* ========================================
+   LOGO ANIMATION
+   ======================================== */
+
+@keyframes atl-brands-card-logo-enter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   HOVER
+   ======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .atl-brands-card:hover {
+
+        box-shadow:
+            -12px 12px 2px -1px
+            var(--atl-brands-card-shadow-color);
+
+    }
+
+}
+
+
+/* ========================================
+   ACTIVE
+   ======================================== */
+
+@media not all and (hover: hover) and (pointer: fine) {
+
+    .atl-brands-card:active {
+
+        box-shadow:
+            -12px 12px 2px -1px
+            var(--atl-brands-card-shadow-color);
+
+    }
+
+}
+
+
+/* ========================================
+   ATL BRANDS GRID
+   ======================================== */
+
+.atl-brands-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 32px;
+}
+
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 1024px) {
+
+    .atl-brands-grid {
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 767px) {
+
+    .atl-brands-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .atl-brands-grid .atl-brands-card {
+
+        --atl-brands-card-animation-delay: 0s;
+
+    }
+
+}

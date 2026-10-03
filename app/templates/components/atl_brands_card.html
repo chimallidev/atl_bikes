@@ -1,0 +1,68 @@
+{% macro atl_brands_card(config={}) %}
+
+    {% set data = config.get("data", {}) %}
+    {% set appearance = config.get("appearance", {}) %}
+    {% set behavior = config.get("behavior", {}) %}
+
+
+    {# ========================================
+       DATA
+       ======================================== #}
+
+    {% set logo_url = data.get("logo_url", "") %}
+    {% set logo_alt = data.get("logo_alt", "Logo de la marca") %}
+    {% set url = data.get("url", "#") %}
+
+
+    {# ========================================
+       APPEARANCE
+       ======================================== #}
+
+    {% set background = appearance.get("background", "#ffffff") %}
+    {% set border_color = appearance.get(
+        "border_color",
+        "rgba(0, 95, 115, 0.2)"
+    ) %}
+    {% set shadow_color = appearance.get(
+        "shadow_color",
+        "rgba(0, 95, 115, 0.2)"
+    ) %}
+
+
+    {# ========================================
+       BEHAVIOR
+       ======================================== #}
+
+    {% set animation_delay = behavior.get("animation_delay", "0s") %}
+    {% set animation_duration = behavior.get("animation_duration", "0.6s") %}
+
+
+    <a
+        class="atl-brands-card"
+        href="{{ url }}"
+        style="
+            --atl-brands-card-background: {{ background }};
+            --atl-brands-card-border-color: {{ border_color }};
+            --atl-brands-card-shadow-color: {{ shadow_color }};
+            --atl-brands-card-animation-delay: {{ animation_delay }};
+            --atl-brands-card-animation-duration: {{ animation_duration }};
+        "
+    >
+
+        <div class="atl-brands-card__logo-wrapper">
+
+            {% if logo_url %}
+
+                <img
+                    class="atl-brands-card__logo"
+                    src="{{ logo_url }}"
+                    alt="{{ logo_alt }}"
+                >
+
+            {% endif %}
+
+        </div>
+
+    </a>
+
+{% endmacro %}

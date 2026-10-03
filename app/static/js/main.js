@@ -6,6 +6,7 @@ import {
 } from "./components/weather_ticker.js";
 
 import { initWeather } from "./components/weather.js";
+import { initAtlBrandsCard } from "./components/atl_brands_card.js";
 
 
 
@@ -15,6 +16,8 @@ const initializeApp = async () => {
     initWeatherTicker();
 
     setWeatherTickerLoading();
+
+    initAtlBrandsCard();
 
     try {
 

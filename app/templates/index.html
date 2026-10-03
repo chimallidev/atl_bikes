@@ -6,6 +6,7 @@
 {% from 'components/atl_categories.html' import atl_categories %}
 {% from 'components/weather_ticker.html' import weather_ticker %}
 {% from 'components/banner_blog.html' import banner_blog %}
+{% from 'components/atl_brands_card.html' import atl_brands_card %}
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
@@ -17,6 +18,7 @@
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_categories_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/weather_ticker_style.css')}}">
 <link rel="stylesheet" href="{{url_for('static', path='/css/components/banner_blog_style.css')}}">
+<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_brands_card_style.css')}}">
 {% endblock %}
 
 {% block svg %}
@@ -219,8 +221,8 @@
                 "para disfrutar al máximo de tu bicicleta."
             ),
 
-            "title_color": "#ffffff",
-            "subtitle_color": "#ffffff",
+            "title_color": "var(--white-color)",
+            "subtitle_color": "var(--pino-claro)",
 
             "button_content": {
                 "text": "LEER BLOG",
@@ -235,6 +237,73 @@
             },
         })}}
     </section>
+    <section class="index__atl-brands">
+        <h2 class="index__h2 index__title">MARCAS</h2>
+        <div class="index__atl-brands-grid">
+
+            {% set brands = [
+
+                {
+                    "logo_url": "/static/img/brands/alubike-brand.webp",
+                    "logo_alt": "Alubike",
+                    "url": "#"
+                },
+
+                {
+                    "logo_url": "/static/img/brands/cannondale-brand.webp",
+                    "logo_alt": "Cannondale",
+                    "url": "#"
+                },
+
+                {
+                    "logo_url": "/static/img/brands/canyon-brand.webp",
+                    "logo_alt": "Canyon",
+                    "url": "#"
+                },
+
+                {
+                    "logo_url": "/static/img/brands/giant-brand.webp",
+                    "logo_alt": "Giant",
+                    "url": "#"
+                },
+
+                {
+                    "logo_url": "/static/img/brands/specialized-brand.webp",
+                    "logo_alt": "Specialized",
+                    "url": "#"
+                },
+
+                {
+                    "logo_url": "/static/img/brands/trek-brand.webp",
+                    "logo_alt": "Trek",
+                    "url": "#"
+                },
+
+            ] %}
+
+            {% for brand in brands %}
+
+                {{ atl_brands_card(
+                    {
+                        "data": brand,
+
+                        "appearance": {
+                            "background": "var(--white-color)",
+                            "border_color": "var(--main-color)",
+                            "shadow_color": "oklch(0.448474 0.080961 218.7343 / 50%)"
+                        },
+
+                        "behavior": {
+                            "animation_delay": (loop.index0 * 0.1)|string ~ "s",
+                            "animation_duration": "0.3s"
+                        }
+                    }
+                ) }}
+
+            {% endfor %}
+
+        </div>
+    </section>
 {% endblock %}
 
 
@@ -243,5 +312,6 @@
 <script type="module" src="{{url_for("static", path="js/components/atl_categories.js")}}"></script>
 <script type="module" src="{{url_for("static", path="js/components/weather_ticker.js")}}"></script>
 <script type="module" src="{{url_for("static", path="js/components/weather.js")}}"></script>
+<script type="module" src="{{url_for("static", path="js/components/atl_brands_card.js")}}"></script>
 <script type="module" src="{{url_for("static", path="js/main.js")}}"></script>
 {% endblock %}
