@@ -89,6 +89,7 @@
 
     .index__atl-brands-grid {
         grid-template-columns: 1fr;
+        padding-bottom: 8%;
     }
 
     .index__atl-brands-grid .atl-brands-card {
