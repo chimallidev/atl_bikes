@@ -24,6 +24,7 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file=".env",
+        env_prefix="ATL_",
         case_sensitive=False,
     )
 
