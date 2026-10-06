@@ -1,0 +1,421 @@
+<nav class="nav-bar" aria-label="Navegación principal">
+
+    <!-- ========================================
+         HEADER
+         ======================================== -->
+
+    <div class="nav-bar__container">
+
+        <!-- Menú móvil -->
+        <button
+            class="nav-bar__menu-button"
+            type="button"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="nav-bar-menu"
+        >
+            <span class="nav-bar__menu-icon">
+                <span class="nav-bar__menu-line"></span>
+                <span class="nav-bar__menu-line"></span>
+                <span class="nav-bar__menu-line"></span>
+            </span>
+        </button>
+
+
+        <!-- Logo -->
+        <a
+            class="nav-bar__logo"
+            href="/"
+        >
+            <img
+                src="{{url_for('static', path='/img/icons/atl_bikes_logo_square_favicon.ico')}}"
+                alt="ATL Bikes"
+            >
+        </a>
+
+
+        <!-- Navegación desktop -->
+        <div class="nav-bar__desktop-menu">
+
+            <!-- Bicicletas -->
+            <div class="nav-bar__item nav-bar__item--dropdown">
+
+                <a
+                    class="nav-bar__link"
+                    href="#"
+                >
+                    Bicicletas
+                </a>
+
+                <div class="nav-bar__submenu">
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Montaña
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Gravel
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Ruta
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Eléctricas
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Accesorios -->
+            <div class="nav-bar__item nav-bar__item--dropdown">
+
+                <a
+                    class="nav-bar__link"
+                    href="#"
+                >
+                    Accesorios
+                </a>
+
+                <div class="nav-bar__submenu">
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Cascos
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Candados
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Lentes
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Anforas
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Herramientas
+                    </a>
+
+                    <a
+                        class="nav-bar__submenu-link"
+                        href="#"
+                    >
+                        Componentes
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Blog -->
+            <div class="nav-bar__item">
+
+                <a
+                    class="nav-bar__link"
+                    href="#"
+                >
+                    Blog
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Acciones -->
+        <div class="nav-bar__actions">
+
+            <!-- Buscar -->
+            <a
+                class="nav-bar__action"
+                href="#"
+                aria-label="Buscar"
+            >
+                <svg
+                    class="nav-bar__action-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-search"></use>
+                </svg>
+            </a>
+
+
+            <!-- Usuario -->
+            <a
+                class="nav-bar__action"
+                href="#"
+                aria-label="Mi cuenta"
+            >
+                <svg
+                    class="nav-bar__action-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-user"></use>
+                </svg>
+            </a>
+
+
+            <!-- Carrito -->
+            <a
+                class="nav-bar__action"
+                href="#"
+                aria-label="Carrito de compras"
+            >
+                <svg
+                    class="nav-bar__action-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-cart"></use>
+                </svg>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
+         MENÚ MOBILE / TABLET
+         ======================================== -->
+
+    <div
+        class="nav-bar__mobile-menu"
+        id="nav-bar-menu"
+        aria-hidden="true"
+    >
+
+        <!-- ====================================
+             NIVEL PRINCIPAL
+             ==================================== -->
+
+        <div
+            class="nav-bar__mobile-level nav-bar__mobile-level--main"
+        >
+
+            <div class="nav-bar__mobile-items">
+
+                <!-- Bicicletas -->
+                <button
+                    class="nav-bar__mobile-item"
+                    type="button"
+                    data-nav-target="bicycles"
+                >
+                    <span class="nav-bar__mobile-item-text">
+                        Bicicletas
+                    </span>
+
+                    <svg
+                        class="nav-bar__mobile-arrow"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-arrow-right"></use>
+                    </svg>
+                </button>
+
+
+                <!-- Accesorios -->
+                <button
+                    class="nav-bar__mobile-item"
+                    type="button"
+                    data-nav-target="accessories"
+                >
+                    <span class="nav-bar__mobile-item-text">
+                        Accesorios
+                    </span>
+
+                    <svg
+                        class="nav-bar__mobile-arrow"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-arrow-right"></use>
+                    </svg>
+                </button>
+
+
+                <!-- Blog -->
+                <a
+                    class="nav-bar__mobile-item"
+                    href="/blog"
+                >
+                    <span class="nav-bar__mobile-item-text">
+                        Blog
+                    </span>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ====================================
+             NIVEL BICICLETAS
+             ==================================== -->
+
+        <div
+            class="nav-bar__mobile-level nav-bar__mobile-level--sub"
+            data-nav-level="bicycles"
+        >
+
+            <button
+                class="nav-bar__mobile-back"
+                type="button"
+            >
+                <svg
+                    class="nav-bar__mobile-back-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-arrow-left"></use>
+                </svg>
+
+                <span class="nav-bar__mobile-back-title">
+                    Bicicletas
+                </span>
+            </button>
+
+
+            <div class="nav-bar__mobile-items">
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Montaña
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Gravel
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Ruta
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Eléctricas
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ====================================
+             NIVEL ACCESORIOS
+             ==================================== -->
+
+        <div
+            class="nav-bar__mobile-level nav-bar__mobile-level--sub"
+            data-nav-level="accessories"
+        >
+
+            <button
+                class="nav-bar__mobile-back"
+                type="button"
+            >
+                <svg
+                    class="nav-bar__mobile-back-icon"
+                    aria-hidden="true"
+                >
+                    <use href="#icon-arrow-left"></use>
+                </svg>
+
+                <span class="nav-bar__mobile-back-title">
+                    Accesorios
+                </span>
+            </button>
+
+
+            <div class="nav-bar__mobile-items">
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Cascos
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Candados
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Lentes
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Anforas
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Herramientas
+                </a>
+
+                <a
+                    class="nav-bar__mobile-item"
+                    href="#"
+                >
+                    Componentes
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>

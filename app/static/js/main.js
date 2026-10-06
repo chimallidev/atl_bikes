@@ -7,11 +7,14 @@ import {
 
 import { initWeather } from "./components/weather.js";
 import { initAtlBrandsCard } from "./components/atl_brands_card.js";
+import { initNavBar } from "./components/nav_bar.js";
 
 
 
 
 const initializeApp = async () => {
+
+    initNavBar();
 
     initWeatherTicker();
 
