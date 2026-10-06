@@ -1,13 +1,13 @@
 from pathlib import Path
 
-from app.application.services.weather_service import (
+from ...application.services.weather_service import (
     WeatherService,
 )
-from app.core.config import settings
-from app.infrastructure.weather.openweather_client import (
+from ...core.config import settings
+from ...infrastructure.weather.openweather_client import (
     OpenWeatherClient,
 )
-from app.infrastructure.weather.timezone_location import (
+from ...infrastructure.weather.timezone_location import (
     TimezoneLocation,
 )
 
