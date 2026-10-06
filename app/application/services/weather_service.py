@@ -1,12 +1,12 @@
-from app.application.schemas.weather import WeatherData
-from app.infrastructure.weather.openweather_client import (
+from ...application.schemas.weather import WeatherData
+from ...infrastructure.weather.openweather_client import (
     OpenWeatherClient,
 )
-from app.infrastructure.weather.timezone_location import (
+from ...infrastructure.weather.timezone_location import (
     TimezoneLocation,
 )
 
-from app.domain.exceptions.weather_exceptions import (
+from ...domain.exceptions.weather_exceptions import (
     WeatherTimezoneNotFoundError,
 )
 
