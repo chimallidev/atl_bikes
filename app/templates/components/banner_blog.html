@@ -5,7 +5,7 @@
 {% set bg_color_1 = data.get("bg_color_1", "#005f73") %}
 {% set bg_color_2 = data.get("bg_color_2", "#03989e") %}
 
-{% set image = data.get("image", "/static/images/default/hero.webp") %}
+{% set image = data.get("image", "{{ url_for('atl_bikes_static', path='/images/default/hero.webp') }}") %}
 
 {% set title = data.get("title", "ATL bikes") %}
 

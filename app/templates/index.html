@@ -8,17 +8,17 @@
 {% from 'components/banner_blog.html' import banner_blog %}
 {% from 'components/atl_brands_card.html' import atl_brands_card %}
 {% block components_style %}
-<link rel="stylesheet" href="{{url_for('static', path='/css/index_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/front_page_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/skew_button_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/bike_card_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_2_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/featured_bike_card_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_button_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_categories_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/weather_ticker_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/banner_blog_style.css')}}">
-<link rel="stylesheet" href="{{url_for('static', path='/css/components/atl_brands_card_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/index_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/front_page_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/skew_button_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/bike_card_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/atl_button_2_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/featured_bike_card_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/atl_button_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/atl_categories_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/weather_ticker_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/banner_blog_style.css')}}">
+<link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/atl_brands_card_style.css')}}">
 {% endblock %}
 
 {% block svg %}
@@ -33,7 +33,7 @@
 
             "subtitle": "En ATL bikes creemos que cada trayecto comienza con la bicicleta adecuada.",
 
-            "image": "/static/img/ciclismo_agua_mexico_ATL.webp",
+            "image": "{{ url_for('atl_bikes_static', path='/img/ciclismo_agua_mexico_ATL.webp') }}",
             "title_color": "var(--white-color)",
             "subtitle_color": "var(--pino-claro)",
             "button_content": {
@@ -212,7 +212,7 @@
             "bg_color_1": "var(--main-color)",
             "bg_color_2": "var(--secondary-color)",
 
-            "image": "/static/img/mundo-ciclismo-mexico-ATL-Bikes.webp",
+            "image": "{{ url_for('atl_bikes_static', path='/img/mundo-ciclismo-mexico-ATL-Bikes.webp') }}",
 
             "title": "El mundo del ciclismo",
             
@@ -244,37 +244,37 @@
             {% set brands = [
 
                 {
-                    "logo_url": "/static/img/brands/alubike-brand.webp",
+                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/alubike-brand.webp') }}",
                     "logo_alt": "Alubike",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "/static/img/brands/cannondale-brand.webp",
+                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/cannondale-brand.webp') }}",
                     "logo_alt": "Cannondale",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "/static/img/brands/canyon-brand.webp",
+                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/canyon-brand.webp') }}",
                     "logo_alt": "Canyon",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "/static/img/brands/giant-brand.webp",
+                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/giant-brand.webp') }}",
                     "logo_alt": "Giant",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "/static/img/brands/specialized-brand.webp",
+                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/specialized-brand.webp') }}",
                     "logo_alt": "Specialized",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "/static/img/brands/trek-brand.webp",
+                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/trek-brand.webp') }}",
                     "logo_alt": "Trek",
                     "url": "#"
                 },
@@ -309,9 +309,10 @@
 
 
 {% block component_scripts %}
-<script type="module" src="{{url_for("static", path="js/components/atl_categories.js")}}"></script>
-<script type="module" src="{{url_for("static", path="js/components/weather_ticker.js")}}"></script>
-<script type="module" src="{{url_for("static", path="js/components/weather.js")}}"></script>
-<script type="module" src="{{url_for("static", path="js/components/atl_brands_card.js")}}"></script>
-<script type="module" src="{{url_for("static", path="js/main.js")}}"></script>
+<script type="module" src="{{url_for('atl_bikes_static', path="js/components/atl_categories.js")}}"></script>
+<script type="module" src="{{url_for('atl_bikes_static', path="js/components/weather_ticker.js")}}"></script>
+<script type="module" src="{{url_for('atl_bikes_static', path="js/components/weather.js")}}"></script>
+<script type="module" src="{{url_for('atl_bikes_static', path="js/components/atl_brands_card.js")}}"></script>
+<script type="module" src="{{url_for('atl_bikes_static', path="js/main.js")}}"></script>
 {% endblock %}
+

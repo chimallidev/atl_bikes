@@ -3,7 +3,7 @@
 {% from 'components/skew_button.html' import skew_button %}
 
 {% set bg_color = data.get("bg_color", "#005f73") %}
-{% set image = data.get("image", "/static/images/default/hero.webp") %}
+{% set image = data.get("image", "{{ url_for('atl_bikes_static', path='/images/default/hero.webp') }}") %}
 {% set title = data.get("title", "ATL bikes") %}
 {% set subtitle = data.get(
     "subtitle",

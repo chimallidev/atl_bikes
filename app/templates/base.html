@@ -45,14 +45,14 @@
     <meta name="twitter:image" content="{{(og | default({})).get("image", "___")}}">
     
     {# favicon #}
-    <link rel="icon" href="{{url_for('static', path='/img/icons/atl_bikes_logo_square_favicon.ico')}}"
+    <link rel="icon" href="{{url_for('atl_bikes_static', path='/img/icons/atl_bikes_logo_square_favicon.ico')}}"
     type="image/x-icon">
 
     {# Hoja de estilos principal #}
-    <link rel="stylesheet" href="{{url_for('static', path='/css/base_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/base_style.css')}}">
     {# Estilos de componentes más usados #}
-    <link rel="stylesheet" href="{{url_for('static', path='/css/components/footer_style.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', path='/css/components/nav_bar_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/footer_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/nav_bar_style.css')}}">
     
 
     {# Estilos de componentes de cada página #}
@@ -73,7 +73,7 @@
     {% include 'components/footer.html' %}
 
     {# JS Global #}
-    <script type="module" src="{{url_for('static', path='/js/components/nav_bar.js')}}"></script>
+    <script type="module" src="{{url_for('atl_bikes_static', path='/js/components/nav_bar.js')}}"></script>
     {# JS para cada página #}
     {% block component_scripts %}
     {% endblock %}

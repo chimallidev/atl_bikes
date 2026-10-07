@@ -2,7 +2,7 @@
 
 {% set default_items = [
     {
-        "image": "/static/img/placeholder.jpg",
+        "image": "{{ url_for('atl_bikes_static', path='/img/placeholder.jpg') }}",
         "title": "Categoría",
         "color": "#005f73",
         "url": "#"
@@ -30,7 +30,7 @@
 
                 <img
                     class="atl-categories__image"
-                    src="{{ item.get('image', '/static/img/placeholder.jpg') }}"
+                    src="{{ item.get('image', '{{ url_for(''atl_bikes_static'', path=''/img/placeholder.jpg'') }}') }}"
                     alt="{{ item.get('title', 'Categoría') }}"
                 >
 

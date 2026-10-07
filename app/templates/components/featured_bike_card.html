@@ -15,7 +15,7 @@
 
     {% set image = content.get(
         "image",
-        "/static/images/placeholder-bike.jpg"
+        "{{ url_for('atl_bikes_static', path='/images/placeholder-bike.jpg') }}"
     ) %}
 
     {% set brand = content.get(
@@ -250,3 +250,4 @@
     </article>
 
 {% endmacro %}
+
