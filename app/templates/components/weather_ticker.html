@@ -4,26 +4,11 @@
     {% set behavior = data.get("behavior", {}) %}
     {% set items = data.get("items", []) %}
 
-    {% set background = appearance.get(
-        "background",
-        "#005f73"
-    ) %}
-
-    {% set text_color = appearance.get(
-        "text_color",
-        "#ffffff"
-    ) %}
-
-    {% set autoplay = behavior.get(
-        "autoplay",
-        true
-    ) %}
-
-    {% set speed = behavior.get(
-        "speed",
-        40
-    ) %}
-
+    {% set background = appearance.get("background", "#005f73") %}
+    {% set text_color = appearance.get("text_color", "#ffffff") %}
+    {% set autoplay = behavior.get("autoplay", true) %}
+    {% set speed = behavior.get("speed", 40) %}
+    {% set weather_url = data.get("weather_url", "/api/weather") %}
 
     <div
         class="weather-ticker"
@@ -38,58 +23,35 @@
             class="weather-ticker__viewport"
             data-weather-ticker
             data-autoplay="{{ autoplay | lower }}"
+            data-weather-url="{{ weather_url }}"
         >
 
             <div class="weather-ticker__track">
-
                 <div class="weather-ticker__animation">
-
                     <div class="weather-ticker__group">
 
                         {% for item in items %}
-
-                            {% set icon = item.get(
-                                "icon",
-                                ""
-                            ) %}
-
-                            {% set text = item.get(
-                                "text",
-                                ""
-                            ) %}
+                            {% set icon = item.get("icon", "") %}
+                            {% set text = item.get("text", "") %}
 
                             <div class="weather-ticker__item">
-
                                 {% if icon %}
-
                                     <span
                                         class="weather-ticker__icon"
                                         aria-hidden="true"
-                                    >
-                                        {{ icon }}
-                                    </span>
-
+                                    >{{ icon }}</span>
                                 {% endif %}
-
 
                                 {% if text %}
-
-                                    <span
-                                        class="weather-ticker__text"
-                                    >
+                                    <span class="weather-ticker__text">
                                         {{ text }}
                                     </span>
-
                                 {% endif %}
-
                             </div>
-
                         {% endfor %}
 
                     </div>
-
                 </div>
-
             </div>
 
         </div>

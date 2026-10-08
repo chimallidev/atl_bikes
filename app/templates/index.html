@@ -226,19 +226,17 @@
 
     <section class="index__clima">
 
-        {{ weather_ticker(
-            {
-                "appearance": {
-                    "background": "var(--main-color)",
-                    "text_color": "var(--white-color)"
-                },
-
-                "behavior": {
-                    "autoplay": true,
-                    "speed": 55
-                }
+        {{ weather_ticker({
+            "weather_url": request.url_for('get_weather') | string,
+            "appearance": {
+                "background": "var(--main-color)",
+                "text_color": "var(--white-color)"
+            },
+            "behavior": {
+                "autoplay": true,
+                "speed": 55
             }
-        ) }}
+        }) }}
 
     </section>
 

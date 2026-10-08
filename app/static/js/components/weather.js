@@ -4,9 +4,29 @@ export async function initWeather() {
         .resolvedOptions()
         .timeZone;
 
-    const response = await fetch(
-        `/api/weather?timezone=${encodeURIComponent(timezone)}`
+    const weatherElement = document.querySelector(
+        "[data-weather-ticker]"
     );
+
+    if (!weatherElement) {
+        throw new Error(
+            "No se encontró el elemento del componente del clima."
+        );
+    }
+
+    const weatherUrl = weatherElement.dataset.weatherUrl;
+
+    if (!weatherUrl) {
+        throw new Error(
+            "No se encontró la URL del endpoint del clima."
+        );
+    }
+
+    const url = new URL(weatherUrl);
+
+    url.searchParams.set("timezone", timezone);
+
+    const response = await fetch(url);
 
     if (!response.ok) {
         throw new Error(
@@ -15,7 +35,6 @@ export async function initWeather() {
     }
 
     const weather = await response.json();
-
 
     return weather;
 }
