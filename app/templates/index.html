@@ -7,6 +7,7 @@
 {% from 'components/weather_ticker.html' import weather_ticker %}
 {% from 'components/banner_blog.html' import banner_blog %}
 {% from 'components/atl_brands_card.html' import atl_brands_card %}
+
 {% block components_style %}
 <link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/index_style.css')}}">
 <link rel="stylesheet" href="{{url_for('atl_bikes_static', path='/css/components/front_page_style.css')}}">
@@ -26,16 +27,17 @@
 {% endblock %}
 
 {% block content %}
-    <section class="index__portada"></section>
+
+    <section class="index__portada">
+
         {{ front_page({
             "bg_color": "var(--main-color)",
             "title": "Muévete con libertad.",
-
             "subtitle": "En ATL bikes creemos que cada trayecto comienza con la bicicleta adecuada.",
-
-            "image": "{{ url_for('atl_bikes_static', path='/img/ciclismo_agua_mexico_ATL.webp') }}",
+            "image": url_for('atl_bikes_static', path='/img/ciclismo_agua_mexico_ATL.webp'),
             "title_color": "var(--white-color)",
             "subtitle_color": "var(--pino-claro)",
+
             "button_content": {
                 "text": "Encontrar mi bicicleta",
                 "colors": {
@@ -49,111 +51,138 @@
             }
 
         }) }}
+
     </section>
+
+
     <section class="index__productos-destacados">
-        <h1 class="index__h1 index__title">BICICLETAS <span>DESTACADAS</span></h1>
+
+        <h1 class="index__h1 index__title">
+            BICICLETAS <span>DESTACADAS</span>
+        </h1>
 
         <section class="index__cards-productos">
+
             {% if featured_products %}
+
                 {% for f_product in featured_products %}
-                    {{featured_bike_card(
+
+                    {{ featured_bike_card(
                         {
-                        "content": {
-                            "image": f_product.cover_image_url,
-                            "brand": f_product.brand,
-                            "name": f_product.name,
-                            "url": "#",
-                            "old_price": f_product.compare_at_price,
-                            "current_price": f_product.current_price,
+                            "content": {
+                                "image": f_product.cover_image_url,
+                                "brand": f_product.brand,
+                                "name": f_product.name,
+                                "url": "#",
+                                "old_price": f_product.compare_at_price,
+                                "current_price": f_product.current_price,
+
+                                "colors": {
+                                    "background": "oklch(0.448474 0.080961 218.7343 / 60%)",
+                                    "brand": "#e7e7e7",
+                                    "name": "var(--white-color)",
+                                    "old_price": "#e7e7e7",
+                                    "current_price": "var(--white-color)"
+                                }
+                            },
+
+                            "button_content": {
+                                "tag": "button",
+                                "href": "/bikes",
+                                "text": "Añadir al carrito",
+                                "version": 2,
+                                "svg": "icon-cart",
+                                "text_color": "#000000",
+                                "border_color": "var(--tierra-claro-color)",
+                                "background_color": "#ffffff",
+                                "hover_color": "var(--tierra-claro-color)",
+                                "hover_text_color": "var(--white-color)"
+                            },
 
                             "colors": {
-                                "background": "oklch(0.448474 0.080961 218.7343 / 60%)",
-                                "brand": "#e7e7e7",
-                                "name": "var(--white-color)",
-                                "old_price": "#e7e7e7",
-                                "current_price": "var(--white-color)",
-                            },
-                        },
+                                "primary": "linear-gradient(315deg, #8c9c84, var(--pino-oscuro))",
+                                "secondary": "linear-gradient(315deg, #a1d287, #77a65d)",
+                                "span_one": {
+                                    "before": "oklch(0.6179 0.1046 199.77 / 40%)",
+                                    "after": "oklch(0.6179 0.1046 199.77 / 40%)"
+                                }
+                            }
+                        }
+                    ) }}
 
-                        "button_content": {
-                            "tag": "button",
-                            "href": "/bikes",
-                            "text": "Añadir al carrito",
-                            "version": 2,
-                            "svg": "icon-cart",
-
-                            "text_color": "#000000",
-                            "border_color": "var(--tierra-claro-color)",
-                            "background_color": "#ffffff",
-                            "hover_color": "var(--tierra-claro-color)",
-                            "hover_text_color": "var(--white-color)"
-                        },
-
-                        "colors": {
-                            "primary": "linear-gradient(315deg, #8c9c84, var(--pino-oscuro))",
-                            "secondary": "linear-gradient(315deg, #a1d287, #77a65d)",
-                            "span_one": {
-                                "before": "oklch(0.6179 0.1046 199.77 / 40%)",
-                                "after": "oklch(0.6179 0.1046 199.77 / 40%)",
-                            },
-                        },
-                    }
-                    )}}
                 {% endfor %}
+
             {% endif %}
+
         </section>
+
     </section>
+
+
     <section class="index__categorias">
-        <h2 class="index__h2 index__title">CATEGORÍAS</h2>
-        {{atl_categories(
+
+        <h2 class="index__h2 index__title">
+            CATEGORÍAS
+        </h2>
+
+        {{ atl_categories(
             {
-            "items": [
-                {
-                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/montana/montana-1.webp",
-                    "title": "Montaña",
-                    "color": "var(--main-color)",
-                    "url": "#"
-                },
-                {
-                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/gravel/gravel-1.webp",
-                    "title": "Gravel",
-                    "color": "var(--pino-oscuro)",
-                    "url": "#"
-                },
-                {
-                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/ruta/ruta-1.webp",
-                    "title": "Ruta",
-                    "color": "var(--pino-claro)",
-                    "url": "#"
-                },
-                {
-                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/electricas/electricas-1.webp",
-                    "title": "Eléctricas",
-                    "color": "var(--tierra-color)",
-                    "url": "#"
-                },
-                {
-                    "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/accesorios/accesorios-1.webp",
-                    "title": "Accesorios",
-                    "color": "var(--secondary-color)",
-                    "url": "#"
-                },
-            ]
+                "items": [
+                    {
+                        "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/montana/montana-1.webp",
+                        "title": "Montaña",
+                        "color": "var(--main-color)",
+                        "url": "#"
+                    },
+                    {
+                        "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/gravel/gravel-1.webp",
+                        "title": "Gravel",
+                        "color": "var(--pino-oscuro)",
+                        "url": "#"
+                    },
+                    {
+                        "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/ruta/ruta-1.webp",
+                        "title": "Ruta",
+                        "color": "var(--pino-claro)",
+                        "url": "#"
+                    },
+                    {
+                        "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/electricas/electricas-1.webp",
+                        "title": "Eléctricas",
+                        "color": "var(--tierra-color)",
+                        "url": "#"
+                    },
+                    {
+                        "image": "https://dyvpenciwevvynoulfnw.supabase.co/storage/v1/object/public/categories/accesorios/accesorios-1.webp",
+                        "title": "Accesorios",
+                        "color": "var(--secondary-color)",
+                        "url": "#"
+                    }
+                ]
             }
-        )}}
+        ) }}
+
     </section>
+
+
     <section class="index__bicicletas-mas-vendidas">
-        <h2 class="index__h2 index__title">BICICLETAS <span>MÁS VENDIDAS</span></h2>
+
+        <h2 class="index__h2 index__title">
+            BICICLETAS <span>MÁS VENDIDAS</span>
+        </h2>
+
         <div class="index__best-selling-container">
+
             {% for b_card in bestselling_products %}
-                {{bike_card({
+
+                {{ bike_card({
                     "link": {
                         "url": "#"
                     },
 
                     "image": {
-                            "src": b_card.cover_image_url,
-                            "alt": "Bicicleta " + featured_products[0].name
+                        "src": b_card.cover_image_url,
+                        "alt": "Bicicleta " + featured_products[0].name
                     },
 
                     "text": {
@@ -165,57 +194,69 @@
                         "show_old": b_card.compare_at_price is not none,
                         "old": b_card.compare_at_price,
                         "current": b_card.current_price
-                    },        
+                    },
 
                     "button_content": {
                         "content": {
                             "icon": "icon-cart",
-                            "text": "AÑADIR AL CARRITO"   
+                            "text": "AÑADIR AL CARRITO"
                         },
 
                         "colors": {
                             "text_color": "var(--black-color)"
-                        },
+                        }
                     },
-                    "style": {
 
+                    "style": {
                         "brand_color": "var(--pino-oscuro)",
                         "name_color": "var(--black-color)",
-
                         "old_price_color": "var(--tierra-claro-color)",
                         "current_price_color": "var(--main-color)",
-
                         "shadow_color": "var(--main-color)"
                     }
 
-                })}}
-            {% endfor %}
-        </div>
-    </section>
-    <section class="index__clima">
-        {{weather_ticker(
-            {
-            "appearance": {
-                "background": "var(--main-color)",
-                "text_color": "var(--white-color)"
-            },
+                }) }}
 
-            "behavior": {
-                "autoplay": true,
-                "speed": 55
-            },
-            }
-        )}}
+            {% endfor %}
+
+        </div>
+
     </section>
+
+
+    <section class="index__clima">
+
+        {{ weather_ticker(
+            {
+                "appearance": {
+                    "background": "var(--main-color)",
+                    "text_color": "var(--white-color)"
+                },
+
+                "behavior": {
+                    "autoplay": true,
+                    "speed": 55
+                }
+            }
+        ) }}
+
+    </section>
+
+
     <section class="index__blog">
-        {{banner_blog({
+
+        {{ banner_blog({
+
             "bg_color_1": "var(--main-color)",
             "bg_color_2": "var(--secondary-color)",
 
-            "image": "{{ url_for('atl_bikes_static', path='/img/mundo-ciclismo-mexico-ATL-Bikes.webp') }}",
+            "image": url_for(
+                'atl_bikes_static',
+                path='/img/mundo-ciclismo-mexico-ATL-Bikes.webp'
+            ),
 
             "title": "El mundo del ciclismo",
-            
+
             "subtitle": (
                 "Descubre consejos, rutas, novedades y todo lo que necesitas "
                 "para disfrutar al máximo de tu bicicleta."
@@ -234,50 +275,76 @@
                     "hover_outline": "var(--pino-oscuro)",
                     "shadow": "var(--pino-oscuro)"
                 }
-            },
-        })}}
+            }
+
+        }) }}
+
     </section>
+
+
     <section class="index__atl-brands">
-        <h2 class="index__h2 index__title">MARCAS</h2>
+
+        <h2 class="index__h2 index__title">
+            MARCAS
+        </h2>
+
         <div class="index__atl-brands-grid">
 
             {% set brands = [
 
                 {
-                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/alubike-brand.webp') }}",
+                    "logo_url": url_for(
+                        'atl_bikes_static',
+                        path='/img/brands/alubike-brand.webp'
+                    ),
                     "logo_alt": "Alubike",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/cannondale-brand.webp') }}",
+                    "logo_url": url_for(
+                        'atl_bikes_static',
+                        path='/img/brands/cannondale-brand.webp'
+                    ),
                     "logo_alt": "Cannondale",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/canyon-brand.webp') }}",
+                    "logo_url": url_for(
+                        'atl_bikes_static',
+                        path='/img/brands/canyon-brand.webp'
+                    ),
                     "logo_alt": "Canyon",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/giant-brand.webp') }}",
+                    "logo_url": url_for(
+                        'atl_bikes_static',
+                        path='/img/brands/giant-brand.webp'
+                    ),
                     "logo_alt": "Giant",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/specialized-brand.webp') }}",
+                    "logo_url": url_for(
+                        'atl_bikes_static',
+                        path='/img/brands/specialized-brand.webp'
+                    ),
                     "logo_alt": "Specialized",
                     "url": "#"
                 },
 
                 {
-                    "logo_url": "{{ url_for('atl_bikes_static', path='/img/brands/trek-brand.webp') }}",
+                    "logo_url": url_for(
+                        'atl_bikes_static',
+                        path='/img/brands/trek-brand.webp'
+                    ),
                     "logo_alt": "Trek",
                     "url": "#"
-                },
+                }
 
             ] %}
 
@@ -303,16 +370,37 @@
             {% endfor %}
 
         </div>
-    </section>
-{% endblock %}
 
+    </section>
+
+{% endblock %}
 
 
 {% block component_scripts %}
-<script type="module" src="{{url_for('atl_bikes_static', path="js/components/atl_categories.js")}}"></script>
-<script type="module" src="{{url_for('atl_bikes_static', path="js/components/weather_ticker.js")}}"></script>
-<script type="module" src="{{url_for('atl_bikes_static', path="js/components/weather.js")}}"></script>
-<script type="module" src="{{url_for('atl_bikes_static', path="js/components/atl_brands_card.js")}}"></script>
-<script type="module" src="{{url_for('atl_bikes_static', path="js/main.js")}}"></script>
-{% endblock %}
 
+<script
+    type="module"
+    src="{{url_for('atl_bikes_static', path='js/components/atl_categories.js')}}"
+></script>
+
+<script
+    type="module"
+    src="{{url_for('atl_bikes_static', path='js/components/weather_ticker.js')}}"
+></script>
+
+<script
+    type="module"
+    src="{{url_for('atl_bikes_static', path='js/components/weather.js')}}"
+></script>
+
+<script
+    type="module"
+    src="{{url_for('atl_bikes_static', path='js/components/atl_brands_card.js')}}"
+></script>
+
+<script
+    type="module"
+    src="{{url_for('atl_bikes_static', path='js/main.js')}}"
+></script>
+
+{% endblock %}

@@ -2,7 +2,7 @@
 
 {% set default_items = [
     {
-        "image": "{{ url_for('atl_bikes_static', path='/img/placeholder.jpg') }}",
+        "image": None,
         "title": "Categoría",
         "color": "#005f73",
         "url": "#"
@@ -10,6 +10,7 @@
 ] %}
 
 {% set items = data.get("items", default_items) %}
+
 
 <section class="atl-categories">
 
@@ -28,11 +29,15 @@
                 href="{{ item.get('url', '#') }}"
             >
 
-                <img
-                    class="atl-categories__image"
-                    src="{{ item.get('image', '{{ url_for(''atl_bikes_static'', path=''/img/placeholder.jpg'') }}') }}"
-                    alt="{{ item.get('title', 'Categoría') }}"
-                >
+                {% set image = item.get('image') %}
+
+                {% if image %}
+                    <img
+                        class="atl-categories__image"
+                        src="{{ image }}"
+                        alt="{{ item.get('title', 'Categoría') }}"
+                    >
+                {% endif %}
 
                 <div class="atl-categories__content">
 
